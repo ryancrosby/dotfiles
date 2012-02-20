@@ -19,5 +19,6 @@ These are my dotfiles, I gained much inspiration from
 there, but for the most part are filled with adjustments that I never realize. So I am making my own
 adding only the customizations I want and/or understand.
 
-This was modified at work.
-
+VIM is mamanged through pathogen, taken largely from 
+[VIM Casts.org](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/). I will be 
+modifying it a bit, since I am not sure how the git submodules will work.

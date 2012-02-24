@@ -3,14 +3,3 @@
 if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
-
-if [ -f ~/.local_bashrc ]; then
-  source ~/.local_bashrc
-fi
-
-
-# make ls command show color output
-alias ls="ls -G"
-# colorize everything
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced

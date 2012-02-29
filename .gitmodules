@@ -26,7 +26,3 @@
 	path = vim/bundle/ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
     ignore = dirty
-[submodule "bash/todo"]
-	path = bash/todo
-	url = git://github.com/ginatrapani/todo.txt-cli.git
-    ignore = dirty

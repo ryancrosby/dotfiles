@@ -3,6 +3,9 @@ alias t="$HOME/.bash/todo/todo.sh -d $HOME/.bash/todo/todo.cfg"
 source "$HOME/.bash/todo/todo_completion"
 complete -F _todo t
 
+# Custom Command Line Programs
+export PATH="${HOME}/.bin:${PATH}"
+
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 

@@ -13,11 +13,14 @@ let g:soloarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
+colorscheme solarized
+
+" NERDTree
+nmap <silent> <c-n> :NERDTreeToggle<CR>
 
 " some files git always wants to commit
 " move them outside the repo
 let g:netrw_home=$HOME . "/.vimfiles"
-colorscheme solarized
 
 set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
 filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]

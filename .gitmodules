@@ -26,3 +26,6 @@
 	path = vim/bundle/ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
     ignore = dirty
+[submodule "vim/bundle/vim-less"]
+	path = vim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git

@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+HELP = <<EOS
+git-wtf displays the state of your repository in a readable, easy-to-scan
+format. It's useful for getting asummary of how a branch relates to a remote
+server, and for wrangling many topic branches.
+
+Based on github://cypher/dotfiles
+EOS
+
+require 'yaml'
+
+if ARGV.delete("--help") || ARGV.delete("-h")
+    puts HELP 
+    exit
+end
+
+def status
+    `git ls-files`.split(/[\r\n]+/)
+end
+
+files = status
+
+files.each do |f|
+    puts f
+end
+
+# puts `git status`

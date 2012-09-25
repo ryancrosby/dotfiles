@@ -19,10 +19,39 @@ def status
     `git ls-files`.split(/[\r\n]+/)
 end
 
+def get_submodule_hash_list
+    submodule_list = Array.new
+    `git submodule`.each do |submodule_line|
+        submodule = submodule_line.split
+        submodule_hash = Hash.new
+        submodule_hash['hash'] = submodule[0]
+        submodule_hash['dir'] = submodule[1]
+        submodule_hash['commmit'] = submodule[2]
+        submodule_list.push submodule_hash
+    end
+    return submodule_list
+end
+
 files = status
 
 files.each do |f|
-    puts f
+#    puts f
 end
+
+submodules = get_submodule_hash_list
+
+submodules.each do |submodule|
+    puts "Checking submodule '"+submodule['dir']+"'"
+    Dir.chdir(Dir.pw + '/' + submodule['dir'] do
+       current_branch = `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+       if current_branch 
+    end
+    puts f['dir']
+end
+
+#puts `pwd`
+
+#Dir.chdir(Dir.pwd + '/CLSharedCodeLibrary') do
+
 
 # puts `git status`

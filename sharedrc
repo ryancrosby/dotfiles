@@ -3,6 +3,9 @@
 #source "$HOME/.bash/todo/todo_completion"
 #complete -F _todo t
 
+# JSON Parsing shortcut
+alias pp="python -m json.tool"
+
 # Custom Command Line Programs
 export PATH="${HOME}/.bin:${PATH}"
 

@@ -35,3 +35,6 @@
 [submodule "vim/bundle/vim-ios"]
 	path = vim/bundle/vim-ios
 	url = https://github.com/eraserhd/vim-ios.git
+[submodule "vim/bundle/command-t"]
+	path = vim/bundle/command-t
+	url = git://git.wincent.com/command-t.git

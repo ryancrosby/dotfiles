@@ -1,0 +1,79 @@
+#!/usr/bin/env ruby
+
+require 'escape'
+
+HELP = <<EOS
+git-branch-status iterates through all the local branches,
+and compares them with master. To see which branches are not 
+merged into master.
+
+Based on github://cypher/dotfiles
+EOS
+
+require 'yaml'
+
+if ARGV.delete("--help") || ARGV.delete("-h")
+    puts HELP 
+    exit
+end
+
+def status
+    `git ls-files`.split(/[\r\n]+/)
+end
+
+def get_branch_hash_list
+    branch_list = Array.new
+    `git-branch`.each do |branch_line|
+        branch_hash = Hash.new
+        branch_hash['branch'] = branch_line
+        branch_hash['status'] = Escape.shell_command(["git-log", "master..#{branch_line}"])
+        branch_list.push branch_hash
+    end
+    return branch_list
+end
+
+def get_submodule_hash_list
+    submodule_list = Array.new
+    `git submodule`.each do |submodule_line|
+        submodule = submodule_line.split
+        submodule_hash = Hash.new
+        submodule_hash['hash'] = submodule[0]
+        submodule_hash['dir'] = submodule[1]
+        submodule_hash['commmit'] = submodule[2]
+        submodule_list.push submodule_hash
+    end
+    return submodule_list
+end
+
+#files = status
+
+#files.each do |f|
+#    puts f
+#end
+#
+
+branches = get_branch_hash_list
+
+branches.each do |branch|
+    puts "Branch: "+branch['branch']
+    puts "Diff: "
+    puts branch['status']
+end
+
+#submodules = get_submodule_hash_list
+#
+#submodules.each do |submodule|
+#    puts "Checking submodule '"+submodule['dir']+"'"
+#    Dir.chdir(Dir.pw + '/' + submodule['dir'] do
+#       current_branch = `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+#       if current_branch 
+#    end
+#    puts f['dir']
+#end
+
+#puts `pwd`
+
+#Dir.chdir(Dir.pwd + '/CLSharedCodeLibrary') do
+
+
+# puts `git status`

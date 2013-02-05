@@ -6,6 +6,10 @@
 # JSON Parsing shortcut
 alias pp="python -m json.tool"
 
+# Use Updated VIM
+# TODO: Only create this alias if this binary exists
+alias vim="/usr/local/bin/vim"
+
 # Custom Command Line Programs
 export PATH="${HOME}/.bin:${PATH}"
 

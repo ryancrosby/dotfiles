@@ -27,7 +27,10 @@ export PATH="/usr/local/share/python:${PATH}"
 [[ -s ~/.local_bashrc ]] && . ~/.local_bashrc
 
 # Add RVM to PATH for scripting
-PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/.rvm/bin
+PATH=$PATH:$HOME/.rvm/bin
+
+# Add homebrew paths
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Add npm to PATH for scripting
 PATH=/usr/local/share/npm/bin:$PATH

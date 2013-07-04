@@ -11,9 +11,13 @@ vmap ; :
 set nopasteboard
 
 " Make it work like Command-T
-map ,t :xccmd openQuickly<cr>
+map <C-p> :xccmd openQuickly<cr>
 map ,l :xccmd showDocumentItemsMenu<cr>
 map ,b :xccmd showPreviousFilesHistoryMenu<cr>
+
+" Make it work like Cocoa.vim
+map ,A :xccmd jumpToNextCounterpart<cr>
+map ,a :xccmd jumpToPreviousCounterpart<cr>
 
 " Trying to make Xcode more like vim
 map <C-6> :xccmd goBackInHistoryByCommand<cr>

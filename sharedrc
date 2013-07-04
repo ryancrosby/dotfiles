@@ -1,17 +1,19 @@
 # Todo.txt
-#alias t="$HOME/.bash/todo/todo.sh -d $HOME/.bash/todo/todo.cfg"
-#source "$HOME/.bash/todo/todo_completion"
+#alias t="$HOME/dotfiles/bash/todo/todo.sh -d $HOME/dotfiles/bash/todo/todo.cfg"
+#source "$HOME/dotfiles/bash/todo/todo_completion"
 #complete -F _todo t
 
 # JSON Parsing shortcut
 alias pp="python -m json.tool"
 
-# Use Updated VIM
-# TODO: Only create this alias if this binary exists
-#alias vim="/usr/local/bin/vim"
+# Android SDK Stuff
+alias android_emulator="$HOME/android/sdk/tools/emulator"
 
 # Custom Command Line Programs
-export PATH="${HOME}/.bin:${PATH}"
+export PATH="${HOME}/dotfiles/bin:${PATH}"
+
+# Brew Python
+export PATH="/usr/local/share/python:${PATH}"
 
 # RVM
 # Load RVM into a shell session *as a function*
@@ -25,4 +27,7 @@ export PATH="${HOME}/.bin:${PATH}"
 [[ -s ~/.local_bashrc ]] && . ~/.local_bashrc
 
 # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.rvm/bin
+PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/.rvm/bin
+
+# Add npm to PATH for scripting
+PATH=/usr/local/share/npm/bin:$PATH

@@ -8,7 +8,7 @@ set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
 " Must have this next line for vundler
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/dotfiles/vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
@@ -20,6 +20,12 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle '/Users/ryancrosby/Developer/pragmatic-objc/.git'
 Bundle 'kien/ctrlp.vim'
 Bundle 'stephenprater/cocoa.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
+" Bundle 'majutsushi/tagbar'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-markdown'
 " Bundle 'wincent/Command-T'
 " Bundle 'xolox/vim-easytags'
 " Bundle 'abudden/TagHighlight'
@@ -27,29 +33,29 @@ Bundle 'stephenprater/cocoa.vim'
 " Must have this next line for vundler
 filetype plugin indent on     " required!
 
-echo "Welcome Ryan"
+"echo "Welcome Ryan"
 
 " Solarized
-syntax enable
-if has('gui_running')
- set background=light
-else
-  set background=light
-endif
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-
-let g:solarized_visibility="high"
-colorscheme solarized
+"syntax enable
+"if has('gui_running')
+" set background=dark
+"else
+"  set background=dark
+"endif
+"let g:solarized_termtrans=1
+"let g:solarized_termcolors=256
+"let g:solarized_contrast="high"
+"
+"let g:solarized_visibility="high"
+"colorscheme solarized
 
 
 " Turn syntax on
-"syntax enable
+syntax enable
 
 
-"set background=dark
-"colorscheme slate       " Dark Color, decent
+set background=dark
+colorscheme slate       " Dark Color, decent
 " colorscheme evening " Sucks
 " colorscheme shine   " Light Color
 
@@ -57,7 +63,7 @@ colorscheme solarized
 "map <F12>  :so tags.vim<CR>
 
 " NERDTree
-"nmap <silent> <c-n> :NERDTreeToggle<CR>
+nmap <silent> <c-n> :NERDTreeToggle<CR>
 
 " Change Leader to a ,
 let mapleader=","
@@ -72,25 +78,66 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+" Let Command P work with project directories
+let g:ctrlp_root_markers = ['.ycm_extra_conf.py']
+" CtrlPClearCache
+
+
 nnoremap <leader>b :CtrlPBuffer<CR>
+
+" YouCompleteMe Settings
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+let g:ycm_allow_changing_updatetime = 0
+let g:ycm_min_num_of_chars_for_completion = 99
+"nnoremap <F4> :call ycm_key_invoke_completion()<CR>
+let g:ycm_key_invoke_completion = '<leader>c'  
+" let g:ycm_key_invoke_completion = '<C-Space>'
+
 " cocoa.vim Mappings
-"map <leader>l :ListMethods<CR>
-
-" Command-T Settings
-" nmap <silent> <leader>l :CommandTTag<CR>   " This is crashing for some
-" reason
-"let g:CommandTMaxHeight=25
-"let g:CommandTMinHeight=25
-"let g:CommandTAlwaysShowDotFiles=0 " Shows . files, this is default placing it here to remember it is an option
-
-" let g:easytags_cmd="/usr/local/bin/ctags"
-"let g:easytags_cmd = '/usr/local/bin/ctags'
+map <leader>m :ListMethods<CR>
 
 " Tagbar mappings
-"nmap <F8> :TagbarToggle<CR>
+nmap <F8> :TagbarToggle<CR>
+
+" Ack.vim mappings
+nnoremap <leader>f :Ack
 
 " Vim Mappings
 imap jj <Esc>
+
+" Insert double quotes around word
+noremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+
+" Use easier regex
+noremap / /\v
+vnoremap / /\v
+
+" Insert single quotes around selection
+"vnoremap <leader>' `<i'<esc>`>a'<esc>
+"
+
+" Jump to start of line
+nnoremap H ^
+nnoremap L $
+
+" Window navigation
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr()) "we haven't moved
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfunction
+
+map <leader>h :call WinMove('h')<cr>
+map <leader>k :call WinMove('k')<cr>
+map <leader>l :call WinMove('l')<cr>
+map <leader>j :call WinMove('j')<cr>
 
 " Open up vimrc in right pain, or source vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -102,9 +149,39 @@ let g:netrw_home=$HOME . "/.vimfiles"
 
 set tags=./tags,tags,~/.vimtags/commontags
 
-" set tags=~/.vimtags/Tumbleweed
-
+        "\ 'M:preprocessor_macro',
 " add a definition for Objective-C to tagbar
+let g:tagbar_type_objc = {
+    \ 'ctagstype' : 'ObjectiveC',
+    \ 'kinds'     : [
+        \ 'i:interface',
+        \ 'I:implementation',
+        \ 'M:Object_method',
+        \ 'm:Object_method',
+        \ 'c:Class_method',
+        \ 'v:Global_variable',
+        \ 'F:Object field',
+        \ 'f:function',
+        \ 'p:property',
+        \ 't:type_alias',
+        \ 's:type_structure',
+        \ 'e:enumeration',
+    \ ],
+    \ 'sro'        : ' ',
+    \ 'kind2scope' : {
+        \ 'i' : 'interface',
+        \ 'I' : 'implementation',
+        \ 's' : 'type_structure',
+        \ 'e' : 'enumeration'
+    \ },
+    \ 'scope2kind' : {
+        \ 'interface'      : 'i',
+        \ 'implementation' : 'I',
+        \ 'type_structure' : 's',
+        \ 'enumeration'    : 'e'
+    \ }
+\ }
+
 "let g:tagbar_type_objc = {
 "    \ 'ctagstype' : 'ObjectiveC',
 "    \ 'kinds'     : [

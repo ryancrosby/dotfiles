@@ -8,7 +8,7 @@ set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
 " Must have this next line for vundler
 filetype off                   " required!
 
-set rtp+=~/dotfiles/vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
@@ -21,19 +21,18 @@ Bundle '/Users/ryancrosby/Developer/pragmatic-objc/.git'
 Bundle 'kien/ctrlp.vim'
 Bundle 'stephenprater/cocoa.vim'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 " Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-fugitive'
+" Bundle 'tpope/vim-markdown'
 " Bundle 'wincent/Command-T'
 " Bundle 'xolox/vim-easytags'
 " Bundle 'abudden/TagHighlight'
 
 " Must have this next line for vundler
 filetype plugin indent on     " required!
-
-"echo "Welcome Ryan"
 
 " Solarized
 "syntax enable
@@ -56,6 +55,8 @@ syntax enable
 
 set background=dark
 colorscheme slate       " Dark Color, decent
+
+set guifont="Anonymous Pro"
 " colorscheme evening " Sucks
 " colorscheme shine   " Light Color
 

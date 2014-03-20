@@ -13,7 +13,7 @@ alias android_emulator="$HOME/android/sdk/tools/emulator"
 export PATH="${HOME}/dotfiles/bin:${PATH}"
 
 # Brew Python
-export PATH="/usr/local/share/python:${PATH}"
+#export PATH="/usr/local/share/python:${PATH}"
 
 # RVM
 # Load RVM into a shell session *as a function*

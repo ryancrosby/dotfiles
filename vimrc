@@ -8,7 +8,7 @@ set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
 " Must have this next line for vundler
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/dotfiles/vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle

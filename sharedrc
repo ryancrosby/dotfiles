@@ -37,3 +37,6 @@ PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Add npm to PATH for scripting
 PATH=/usr/local/share/npm/bin:$PATH
+
+# Add macvim as vim
+#alias vim=/usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/MacOS/macvim

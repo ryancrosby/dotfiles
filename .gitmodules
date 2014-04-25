@@ -4,3 +4,6 @@
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
+[submodule "lib/oclint-xcodebuild"]
+	path = lib/oclint-xcodebuild
+	url = https://github.com/oclint/oclint-xcodebuild.git

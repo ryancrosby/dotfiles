@@ -20,7 +20,8 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle '/Users/ryancrosby/Developer/pragmatic-objc/.git'
 Bundle 'kien/ctrlp.vim'
 Bundle 'stephenprater/cocoa.vim'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'Rip-Rip/clang_complete'
+" Bundle 'Valloric/YouCompleteMe'
 " Bundle 'scrooloose/syntastic'
 " Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
@@ -241,9 +242,9 @@ set incsearch             " But do highlight as you type your search.
 set ignorecase            " Make searches case-insensitive.
 set ruler                 " Always show info along bottom.
 set autoindent            " auto-indent
-set tabstop=4             " tab spacing
-set softtabstop=4         " unify
-set shiftwidth=4          " indent/outdent by 4 columns
+set tabstop=2             " tab spacing
+set softtabstop=2         " unify
+set shiftwidth=2          " indent/outdent by 4 columns
 set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
@@ -259,8 +260,11 @@ set nowrap                " don't wrap text
 "
 " ===================== Clang Complete ===================
 "
+"
+" http://ap4y.github.io/2013/11/10/vim-for-ios-developers.html
 
-"let g:library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+let g:clang_auto_user_options="compile_commands.json, path, .clang_complete"
 "let g:clang_user_options='-fblocks -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -D __IPHONE_OS_VERSION_MIN_REQUIRED=60000'
 "let g:clang_complete_include_current_directory_recursively=1
 
@@ -277,7 +281,8 @@ set nowrap                " don't wrap text
 "set completeopt-=preview
 
 " Enable snippets
-"let g:clang_snippets = 1
+let g:clang_snippets = 1
+let g:clang_auto_select = 1
 "let g:clang_snippets_engine = 'clang_complete'
 
 "let g:clang_periodic_quickfix = 1  

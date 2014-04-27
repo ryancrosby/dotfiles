@@ -16,18 +16,19 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My custom bundles
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'mileszs/ack.vim'
+
+Bundle 'Rip-Rip/clang_complete'
+Bundle 'stephenprater/cocoa.vim'
 
 " Requires additional config lines in this file
 " Bundle 'altercation/vim-colors-solarized'
 
 " Bundle '/Users/ryancrosby/Developer/pragmatic-objc/.git'
-Bundle 'kien/ctrlp.vim'
-Bundle 'stephenprater/cocoa.vim'
-Bundle 'Rip-Rip/clang_complete'
 " Bundle 'scrooloose/syntastic'
 " Bundle 'majutsushi/tagbar'
-Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdtree'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'tpope/vim-markdown'
 " Bundle 'wincent/Command-T'
@@ -130,79 +131,29 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " move them outside the repo
 let g:netrw_home=$HOME . "/.vimfiles"
 
-set tags=./tags,tags,~/.vimtags/commontags
-
-        "\ 'M:preprocessor_macro',
-" add a definition for Objective-C to tagbar
-let g:tagbar_type_objc = {
-    \ 'ctagstype' : 'ObjectiveC',
-    \ 'kinds'     : [
-        \ 'i:interface',
-        \ 'I:implementation',
-        \ 'M:Object_method',
-        \ 'm:Object_method',
-        \ 'c:Class_method',
-        \ 'v:Global_variable',
-        \ 'F:Object field',
-        \ 'f:function',
-        \ 'p:property',
-        \ 't:type_alias',
-        \ 's:type_structure',
-        \ 'e:enumeration',
-    \ ],
-    \ 'sro'        : ' ',
-    \ 'kind2scope' : {
-        \ 'i' : 'interface',
-        \ 'I' : 'implementation',
-        \ 's' : 'type_structure',
-        \ 'e' : 'enumeration'
-    \ },
-    \ 'scope2kind' : {
-        \ 'interface'      : 'i',
-        \ 'implementation' : 'I',
-        \ 'type_structure' : 's',
-        \ 'enumeration'    : 'e'
-    \ }
-\ }
-
-"let g:tagbar_type_objc = {
-"    \ 'ctagstype' : 'ObjectiveC',
-"    \ 'kinds'     : [
-"        \ 'i:interface',
-"        \ 'I:implementation',
-"        \ 'p:Protocol',
-"        \ 'm:Object_method',
-"        \ 'c:Class_method',
-"        \ 'v:Global_variable',
-"        \ 'F:Object field',
-"        \ 'f:function',
-"        \ 'p:property',
-"        \ 't:type_alias',
-"        \ 's:type_structure',
-"        \ 'e:enumeration',
-"        \ 'M:preprocessor_macro',
-"    \ ],
-"    \ 'sro'        : ' ',
-"    \ 'kind2scope' : {
-"        \ 'i' : 'interface',
-"        \ 'I' : 'implementation',
-"        \ 'p' : 'Protocol',
-"        \ 's' : 'type_structure',
-"        \ 'e' : 'enumeration'
-"    \ },
-"    \ 'scope2kind' : {
-"        \ 'interface'      : 'i',
-"        \ 'implementation' : 'I',
-"        \ 'Protocol'       : 'p',
-"        \ 'type_structure' : 's',
-"        \ 'enumeration'    : 'e'
-"    \ }
-"\ }
-
 " My Custom Settings
 set wildignore=*.o,*.obj,*.d  " ignore files for autocompletion, this helps Command-T not show unwanted results
 nmap <silent>,/ :nohlsearch<CR>    " Clear higlighted search terms
 noremap ; :
+
+if has("autocmd")
+ " Make sure all markdown files have the correct filetype set and
+ "       setup wrapping
+ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+
+ " Treat JSON files like JavaScript
+ au BufNewFile,BufRead *.json set ft=javascript
+
+ " set .h, .m file types to Objective-C
+ au BufNewFile,BufRead *.{h,m} set ft=objc
+
+ " set .podspec, .podfile file types to ruby
+ au BufNewFile,BufRead *.podspec,Podfile set ft=ruby
+
+ " Objective-C identation settings
+ au FileType objc set softtabstop=4 tabstop=4 shiftwidth=4
+
+endif
 
 " Change the cursor when in insert/visual mode, only works in iTerm2
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"

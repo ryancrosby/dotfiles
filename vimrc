@@ -16,43 +16,33 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My custom bundles
-Bundle 'altercation/vim-colors-solarized'
-Bundle '/Users/ryancrosby/Developer/pragmatic-objc/.git'
+
+" Requires additional config lines in this file
+" Bundle 'altercation/vim-colors-solarized'
+
+" Bundle '/Users/ryancrosby/Developer/pragmatic-objc/.git'
 Bundle 'kien/ctrlp.vim'
 Bundle 'stephenprater/cocoa.vim'
 Bundle 'Rip-Rip/clang_complete'
-" Bundle 'Valloric/YouCompleteMe'
 " Bundle 'scrooloose/syntastic'
 " Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-fugitive'
+" Bundle 'tpope/vim-fugitive'
 " Bundle 'tpope/vim-markdown'
 " Bundle 'wincent/Command-T'
 " Bundle 'xolox/vim-easytags'
 " Bundle 'abudden/TagHighlight'
 
+" This one requires additional setup, I removed the config lines
+" see github page for more info
+" Bundle 'Valloric/YouCompleteMe'
+
 " Must have this next line for vundler
 filetype plugin indent on     " required!
 
-" Solarized
-"syntax enable
-"if has('gui_running')
-" set background=dark
-"else
-"  set background=dark
-"endif
-"let g:solarized_termtrans=1
-"let g:solarized_termcolors=256
-"let g:solarized_contrast="high"
-"
-"let g:solarized_visibility="high"
-"colorscheme solarized
-
-
 " Turn syntax on
 syntax enable
-
 
 set background=dark
 colorscheme slate       " Dark Color, decent
@@ -81,25 +71,16 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " Let Command P work with project directories
-let g:ctrlp_root_markers = ['.ycm_extra_conf.py']
+"let g:ctrlp_root_markers = ['.ycm_extra_conf.py']
 " CtrlPClearCache
 
-
 nnoremap <leader>b :CtrlPBuffer<CR>
-
-" YouCompleteMe Settings
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-let g:ycm_allow_changing_updatetime = 0
-let g:ycm_min_num_of_chars_for_completion = 99
-"nnoremap <F4> :call ycm_key_invoke_completion()<CR>
-let g:ycm_key_invoke_completion = '<leader>c'  
-" let g:ycm_key_invoke_completion = '<C-Space>'
 
 " cocoa.vim Mappings
 map <leader>m :ListMethods<CR>
 
 " Tagbar mappings
-nmap <F8> :TagbarToggle<CR>
+" nmap <F8> :TagbarToggle<CR>
 
 " Ack.vim mappings
 nnoremap <leader>f :Ack

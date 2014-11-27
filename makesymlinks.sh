@@ -10,7 +10,7 @@ dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 
 # list of files to symlink to homedir, these cannot be directories.
-files="bashrc bash_profile xvimrc vimrc zshrc sqliterc slate"
+files="bashrc bash_profile xvimrc vimrc zshrc sqliterc slate tmux.conf"
 
 ##########
 

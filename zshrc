@@ -1,5 +1,8 @@
-# Load shared resource config gile
-source ~/dotfiles/sharedrc
+# Environment variables
+# These are loade din zshenv
+
+# Aliases
+source "$HOME/dotfiles/shell-helpers/aliases"
 
 #Path to your oh-my-zsh configuration.
 ZSH=$HOME/dotfiles/oh-my-zsh
@@ -25,7 +28,9 @@ plugins=(git brew vi-mode tmux)
 source $ZSH/oh-my-zsh.sh
 
 # Customizations 
-#
+
+# Autocomplete rbenv
+[[ -s ~/.rbenv/completions/rbenv.zsh ]] && . ~/.rbenv/completions/rbenv.zsh
 
 # Search within history for commands matching current input
 bindkey "^[[A" history-search-backward

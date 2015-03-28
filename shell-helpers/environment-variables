@@ -1,0 +1,22 @@
+# Source our local file, for any environment variables that we
+# don't want to share
+[[ -s ~/.shell-helpers/environment-variables ]] && . ~/.shell-helpers/environment-variables
+
+# rbenv shims
+export PATH=~/.rbenv/shims:$PATH
+
+# Add homebrew paths
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# Add npm to PATH for scripting
+export PATH=/usr/local/share/npm/bin:$PATH
+
+# Go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+# Custom Command Line Programs
+export PATH="${HOME}/dotfiles/bin:${PATH}"
+
+# Brew Python
+#export PATH="/usr/local/share/python:${PATH}"
+

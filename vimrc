@@ -19,14 +19,15 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
+Bundle 'Keithbsmiley/swift.vim'
 
 Bundle 'Rip-Rip/clang_complete'
-Bundle 'stephenprater/cocoa.vim'
+" Bundle 'stephenprater/cocoa.vim'
 
 " Requires additional config lines in this file
 " Bundle 'altercation/vim-colors-solarized'
 
-" Bundle '/Users/ryancrosby/Developer/pragmatic-objc/.git'
+" Bundle '/Users/rcrosby/development/pragmatic-objc/.git'
 " Bundle 'scrooloose/syntastic'
 " Bundle 'majutsushi/tagbar'
 " Bundle 'tpope/vim-fugitive'
@@ -47,10 +48,10 @@ syntax enable
 
 set background=dark
 colorscheme slate       " Dark Color, decent
+" colorscheme shine   " Light Color
+" colorscheme evening " Sucks
 
 set guifont="Anonymous Pro"
-" colorscheme evening " Sucks
-" colorscheme shine   " Light Color
 
 "map <F11>  :sp tags<CR>:%s/^\([^   :]*:\)\=\([^    ]*\).*/syntax keyword Tag \2/<CR>:wq! tags.vim<CR>/^<CR><F12>
 "map <F12>  :so tags.vim<CR>
@@ -129,7 +130,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " some files git always wants to commit
 " move them outside the repo
-let g:netrw_home=$HOME . "/.vimfiles"
+"let g:netrw_home=$HOME . "/.vimfiles"
 
 " My Custom Settings
 set wildignore=*.o,*.obj,*.d  " ignore files for autocompletion, this helps Command-T not show unwanted results
@@ -181,6 +182,8 @@ set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
+
+au FileType python set softtabstop=4 tabstop=4 shiftwidth=4
 
 "set list
 "set listchars=tab:▸\ ,eol:¬ " Use symbols for tabstops and EOLs

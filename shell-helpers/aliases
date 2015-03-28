@@ -1,0 +1,31 @@
+# Source our local file, for any environment variables that we
+# don't want to share
+[[ -s ~/.shell-helpers/aliases ]] && . ~/.shell-helpers/aliases
+
+# JSON Parsing shortcut
+alias pp="python -m json.tool"
+
+# Xcode Reset
+alias clearModuleCache='rm -rf ~/Library/Developer/Xcode/DerivedData/ModuleCache'
+
+# simctl for controlling iOS simulators
+alias simctl='/Applications/Xcode.app/Contents/Developer/usr/bin/simctl'
+
+# Android SDK Stuff
+alias android_emulator="$HOME/android/sdk/tools/emulator"
+
+# tmux
+alias tma='tmux attach -t'
+alias tms='tmux new-session -s'
+
+# Add macvim as vim
+#alias vim=/usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/MacOS/macvim
+
+# Source our local file, for stuff we don't want to share
+#if [ -f ~/.local_bashrc ]; then
+#  source ~/.local_bashrc
+#fi
+# Easier way to right the above snippet
+#[[ -s ~/.local_bashrc ]] && . ~/.local_bashrc
+
+

@@ -8,6 +8,11 @@ set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
 " Must have this next line for vundler
 filetype off                   " required!
 
+" User Powerline for prompt
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
 set rtp+=~/dotfiles/vim/bundle/vundle/
 call vundle#rc()
 
@@ -21,14 +26,14 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
 Bundle 'Keithbsmiley/swift.vim'
 
-Bundle 'Rip-Rip/clang_complete'
+" Bundle 'Rip-Rip/clang_complete'
 " Bundle 'stephenprater/cocoa.vim'
 
 " Requires additional config lines in this file
 " Bundle 'altercation/vim-colors-solarized'
 
 " Bundle '/Users/rcrosby/development/pragmatic-objc/.git'
-" Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 " Bundle 'majutsushi/tagbar'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'tpope/vim-markdown'
@@ -51,7 +56,8 @@ colorscheme slate       " Dark Color, decent
 " colorscheme shine   " Light Color
 " colorscheme evening " Sucks
 
-set guifont="Anonymous Pro"
+" set guifont="Anonymice Powerline"
+set guifont="Sauce Code"
 
 "map <F11>  :sp tags<CR>:%s/^\([^   :]*:\)\=\([^    ]*\).*/syntax keyword Tag \2/<CR>:wq! tags.vim<CR>/^<CR><F12>
 "map <F12>  :so tags.vim<CR>
@@ -160,7 +166,7 @@ endif
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-set statusline=%y\ %f\ %h%m%r%=%-14.(%l,%c%V%)\ %P     " Make the status line show the current filetype, whether it is modified, and be like a default ruler
+" set statusline=%y\ %f\ %h%m%r%=%-14.(%l,%c%V%)\ %P     " Make the status line show the current filetype, whether it is modified, and be like a default ruler
 
 " Settings I started using because I found them on the interwebs
 " I am slowly figuring out if I actually want these and then they go

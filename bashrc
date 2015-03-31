@@ -1,5 +1,5 @@
 # Environment Variables
-source "$HOME/dotfiles/shell-helpers/environment-variables"
+source "$HOME/dotfiles/shell-helpers/export"
 
 # Aliases
 source "$HOME/dotfiles/shell-helpers/aliases"

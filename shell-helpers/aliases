@@ -17,6 +17,13 @@ alias android_emulator="$HOME/android/sdk/tools/emulator"
 # tmux
 alias tma='tmux attach -t'
 alias tms='tmux new-session -s'
+alias tml='tmux list-sessions'
+
+# Colorize output, add file type indicator, and put sizes in human readable format
+alias ls='ls -GFh'
+
+# Same as above, but in long listing format
+alias ll='ls -GFhl'
 
 # Add macvim as vim
 #alias vim=/usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/MacOS/macvim

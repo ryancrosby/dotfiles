@@ -31,3 +31,9 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+# Make a .config dir, and then a powerline dir
+cd ~
+mkdir ~/.config
+ln -s $dir/powerline ~/.config/powerline
+

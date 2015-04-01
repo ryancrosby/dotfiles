@@ -14,7 +14,7 @@ source "$HOME/dotfiles/zaw/zaw.zsh"
 [[ -s ~/.rbenv/completions/rbenv.zsh ]] && . ~/.rbenv/completions/rbenv.zsh
 
 # Powerline for prompt
-source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf"
+source "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
 
 # syntax highlighting
 source "$HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

@@ -8,23 +8,29 @@ set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
 " Must have this next line for vundler
 filetype off                   " required!
 
-" User Powerline for prompt
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" set the runtime path to include Vundle and initialize
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+"
+" " let Vundle manage Vundle, required
+" Plugin 'VundleVim/Vundle.vim'
+"
 
-set rtp+=~/dotfiles/vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/dotfiles/vim/bundle/vundle
+call vundle#begin('~/dotfiles/vim/bundle')
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My custom bundles
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'mileszs/ack.vim'
-Bundle 'Keithbsmiley/swift.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mileszs/ack.vim'
+Plugin 'Keithbsmiley/swift.vim'
+Plugin 'elzr/vim-json'
 
 " Bundle 'Rip-Rip/clang_complete'
 " Bundle 'stephenprater/cocoa.vim'
@@ -33,7 +39,7 @@ Bundle 'Keithbsmiley/swift.vim'
 " Bundle 'altercation/vim-colors-solarized'
 
 " Bundle '/Users/rcrosby/development/pragmatic-objc/.git'
-Bundle 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 " Bundle 'majutsushi/tagbar'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'tpope/vim-markdown'
@@ -44,6 +50,14 @@ Bundle 'scrooloose/syntastic'
 " This one requires additional setup, I removed the config lines
 " see github page for more info
 " Bundle 'Valloric/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+" User Powerline for prompt
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " Must have this next line for vundler
 filetype plugin indent on     " required!
@@ -149,7 +163,7 @@ if has("autocmd")
  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
 
  " Treat JSON files like JavaScript
- au BufNewFile,BufRead *.json set ft=javascript
+ " au BufNewFile,BufRead *.json set ft=javascript
 
  " set .h, .m file types to Objective-C
  au BufNewFile,BufRead *.{h,m} set ft=objc

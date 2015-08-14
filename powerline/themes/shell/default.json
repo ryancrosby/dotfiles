@@ -33,12 +33,8 @@
       ],
       "left": [
         {
-          "module": "powerlinex.segment.rbenv",
-          "name": "version"
-        },
-        {
           "function": "powerline.segments.common.vcs.branch",
-          "priority": 10
+          "priority": 20
         }
       ],
       "right": [

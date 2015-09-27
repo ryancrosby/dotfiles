@@ -2,6 +2,10 @@
 
 - link:
     ~/.dotfiles: ''
+    ~/.bash_profile: bash_profile
+    ~/.bashrc: bashrc
+    ~/.gitignore: gitignore
+    ~/.sqliterc: sqliterc
     ~/.tmux.conf: tmux.conf
     ~/.vim: vim/
     ~/.vimrc: vimrc
@@ -9,10 +13,9 @@
     ~/.zsh: zsh/
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
-    ~/.bash_profile: bash_profile
-    ~/.bashrc: bashrc
-    ~/.gitignore: gitignore
-    ~/.sqliterc: sqliterc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+
+- shell:
+  - [vim +PluginInstall +qall, Installing Vim plugins via Vundle]

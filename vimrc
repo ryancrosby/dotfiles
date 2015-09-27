@@ -31,6 +31,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'mileszs/ack.vim'
 Plugin 'Keithbsmiley/swift.vim'
 Plugin 'elzr/vim-json'
+Plugin 'pangloss/vim-javascript'
 
 " Bundle 'Rip-Rip/clang_complete'
 " Bundle 'stephenprater/cocoa.vim'
@@ -204,7 +205,6 @@ set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
 
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4
-
 "set list
 "set listchars=tab:▸\ ,eol:¬ " Use symbols for tabstops and EOLs
 

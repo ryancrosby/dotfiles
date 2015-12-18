@@ -17,6 +17,9 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 # Custom Command Line Programs
 export PATH="${HOME}/dotfiles/bin:${PATH}"
 
+# Make Homebrew Cask installs go to a sensible location
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 # Shorten key timeout, this is for switching to vi mode editing a zsh prompt
 export KEYTIMEOUT=1
 

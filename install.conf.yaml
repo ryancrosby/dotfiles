@@ -13,6 +13,7 @@
     ~/.zsh: zsh/
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
+    ~/.zprofile: zprofile
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

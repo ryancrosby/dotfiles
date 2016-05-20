@@ -15,6 +15,7 @@
     ~/.zshrc: zshrc
     ~/.zprofile: zprofile
     ~/.gemrc: gemrc
+    ~/.lldbinit: lldbinit 
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

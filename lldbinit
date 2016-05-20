@@ -1,0 +1,6 @@
+# Requires chisel https://github.com/facebook/chisel
+# - Quick Help: from LLDB run `help`
+command script import /usr/local/opt/chisel/libexec/fblldb.py
+
+command alias uikit expr @import UIKit
+command alias foundation expr @import Foundation

@@ -2,9 +2,6 @@
 # don't want to share
 [[ -s ~/.shell-helpers/environment-variables ]] && . ~/.shell-helpers/environment-variables
 
-# rbenv shims
-export PATH=~/.rbenv/shims:$PATH
-
 # Add homebrew paths
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
@@ -13,6 +10,9 @@ export PATH=/usr/local/share/npm/bin:$PATH
 
 # Go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+# rbenv shims
+export PATH=~/.rbenv/shims:$PATH
 
 # Custom Command Line Programs
 export PATH="${HOME}/dotfiles/bin:${PATH}"
@@ -25,6 +25,9 @@ export KEYTIMEOUT=1
 
 # 256 color
 export TERM=xterm-256color
+
+# set editor
+export EDITOR=vim
 
 # Brew Python
 #export PATH="/usr/local/share/python:${PATH}"

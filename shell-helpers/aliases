@@ -18,6 +18,7 @@ alias android_emulator="$HOME/android/sdk/tools/emulator"
 alias tma='tmux attach -t'
 alias tms='tmux new-session -s'
 alias tml='tmux list-sessions'
+alias tmk='tmux kill-session -t'
 
 # Colorize output, add file type indicator, and put sizes in human readable format
 alias ls='ls -GFh'

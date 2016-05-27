@@ -33,6 +33,8 @@ Plugin 'Keithbsmiley/swift.vim'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tmux-plugins/vim-tmux'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Bundle 'Rip-Rip/clang_complete'
 " Bundle 'stephenprater/cocoa.vim'
@@ -57,9 +59,9 @@ Plugin 'tmux-plugins/vim-tmux'
 call vundle#end()            " required
 
 " User Powerline for prompt
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
 
 " Must have this next line for vundler
 filetype plugin indent on     " required!

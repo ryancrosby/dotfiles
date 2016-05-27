@@ -146,13 +146,8 @@ prompt_git_status() {
 
   if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
     prompt_set_segment_separator
-    dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
-    if [[ -n $dirty ]]; then
-      prompt_segment yellow black 
-    else
-      prompt_segment green black
-    fi
+    prompt_segment green black
 
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
       mode=" <B>"
@@ -235,6 +230,7 @@ build_right_prompt() {
 set_prompt() {
 
   PS1="%{%f%b%k%}$(build_prompt) "
+  ARGHSDF="%{%f%b%k%}$(build_prompt) "
 
   export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
 

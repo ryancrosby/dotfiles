@@ -32,6 +32,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'Keithbsmiley/swift.vim'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
+Plugin 'tmux-plugins/vim-tmux'
 
 " Bundle 'Rip-Rip/clang_complete'
 " Bundle 'stephenprater/cocoa.vim'

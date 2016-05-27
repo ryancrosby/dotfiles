@@ -4,3 +4,6 @@
 # Vim Created Temp Files
 *.swp
 *.swo
+
+# Vundle
+vim/bundle/

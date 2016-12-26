@@ -17,6 +17,8 @@ export PATH=~/.rbenv/shims:$PATH
 # Custom Command Line Programs
 export PATH="${HOME}/dotfiles/bin:${PATH}"
 
+export PATH="${HOME}/development/scripts/my-scripts:${PATH}"
+
 # Make Homebrew Cask installs go to a sensible location
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 

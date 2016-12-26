@@ -29,3 +29,17 @@ http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/#current-directory
 
 
 VIM is mamanged through vundle.
+
+## Using
+
+Install powerline fonts (https://github.com/powerline/fonts)
+
+Open terminal and run `./install`
+
+Install homebrew
+
+Run `brew bundle` to install default apps
+
+Change shell, `chsh -s $(which zsh)`
+
+Open iTerm, and change theme to Solarized Dark, and use Source Code Pro font

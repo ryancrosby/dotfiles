@@ -5,6 +5,8 @@ source "$HOME/dotfiles/zsh/setopts.zsh" # zsh configuration
 source "$HOME/dotfiles/zsh/prompt.zsh" # Prompt, we are using powerline for now
 source "$HOME/dotfiles/zsh/completion.zsh"
 source "$HOME/dotfiles/shell-helpers/aliases"
+source "$HOME/dotfiles/shell-helpers/android"
+source "$HOME/dotfiles/shell-helpers/ios"
 source "$HOME/dotfiles/zsh/bindkeys.zsh"
 #source ~/.zsh/functions.zsh
 source "$HOME/dotfiles/zsh/history.zsh"

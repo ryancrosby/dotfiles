@@ -1,0 +1,6 @@
+# Xcode Reset
+alias clearModuleCache='rm -rf ~/Library/Developer/Xcode/DerivedData/ModuleCache'
+
+# simctl for controlling iOS simulators
+alias simctl='/Applications/Xcode.app/Contents/Developer/usr/bin/simctl'
+

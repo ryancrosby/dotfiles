@@ -10,13 +10,13 @@ scriptname=$0
 verbose=false
 author=""
 cmd=""
+hide_hidden=true
 dir="."
 
 function usage () {
    cat <<EOF
-Usage: $scriptname [-p] [-v] [-h] filename
-   -p   probes the ftp sites and check urls in
-        filename
+Usage: $scriptname [-d] [-v] [-h] command 
+   -d   the directory to find directories in  
    -v   executes and prints out verbose messages
    -h   displays basic help
 EOF
@@ -65,9 +65,18 @@ if [ -z "$cmd" ]; then
   usage
 fi
 
+# Define the path we will pass to the find command to get directories to
+# run the script on
+find_path=$dir
+if $hide_hidden ; then
+  find_path="$find_path/[^.]*"
+fi
+
 # http://unix.stackexchange.com/questions/86722/how-do-i-loop-through-only-directories-in-bash
-find $dir -mindepth 1 -maxdepth 1 -type d | while read d; do
+find $find_path -mindepth 0 -maxdepth 0 -type d | while read d; do
   verbose_log "Executing $cmd in $d"
+  pushd "$d" >/dev/null
   $cmd || { echo "command failed"; exit 1; }
+  popd >/dev/null
 done
 

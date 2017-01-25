@@ -5,15 +5,6 @@
 # JSON Parsing shortcut
 alias pp="python -m json.tool"
 
-# Xcode Reset
-alias clearModuleCache='rm -rf ~/Library/Developer/Xcode/DerivedData/ModuleCache'
-
-# simctl for controlling iOS simulators
-alias simctl='/Applications/Xcode.app/Contents/Developer/usr/bin/simctl'
-
-# Android SDK Stuff
-alias android_emulator="$HOME/android/sdk/tools/emulator"
-
 # tmux
 alias tma='tmux attach -t'
 alias tms='tmux new-session -s'

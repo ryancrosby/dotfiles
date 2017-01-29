@@ -25,6 +25,7 @@ EOF
 
 parse_options()
 {
+  # http://wiki.bash-hackers.org/howto/getopts_tutorial
   while getopts ":hva:d:" opt; do
     case $opt in
       a)  author=$OPTARG ;;

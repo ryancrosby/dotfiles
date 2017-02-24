@@ -4,6 +4,7 @@ source "$HOME/dotfiles/zsh/setopts.zsh" # zsh configuration
 #source "$HOME/dotfiles/zsh/colors.zsh" # Colors
 source "$HOME/dotfiles/zsh/prompt.zsh" # Prompt, we are using powerline for now
 source "$HOME/dotfiles/zsh/completion.zsh"
+source "$HOME/dotfiles/shell-helpers/functions"
 source "$HOME/dotfiles/shell-helpers/aliases"
 source "$HOME/dotfiles/shell-helpers/android"
 source "$HOME/dotfiles/shell-helpers/ios"

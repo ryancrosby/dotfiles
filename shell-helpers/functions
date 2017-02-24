@@ -1,0 +1,5 @@
+# Source our local file, for any environment variables that we
+# don't want to share
+[[ -s ~/.shell-helpers/functions ]] && . ~/.shell-helpers/functions
+
+

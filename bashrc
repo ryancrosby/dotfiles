@@ -4,6 +4,9 @@ source "$HOME/dotfiles/shell-helpers/export"
 # Aliases
 source "$HOME/dotfiles/shell-helpers/aliases"
 
+# NVM 
+source "$HOME/dotfiles/shell-helpers/nvm"
+
 # Source our nice prompt
 [[ -s ~/dotfiles/bash/prompt.sh ]] && . ~/dotfiles/bash/prompt.sh
 

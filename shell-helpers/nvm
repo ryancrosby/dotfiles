@@ -1,0 +1,6 @@
+# NVM 
+export NVM_DIR=~/.nvm
+
+# Source nvm if it is currently installed
+[[ -s $(brew --prefix nvm)/nvm.sh ]] && . $(brew --prefix nvm)/nvm.sh
+

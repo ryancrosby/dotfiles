@@ -56,7 +56,7 @@ raise_error()
 
 parse_options $*
 
-shift $(($OPTIND - 2))
+shift $(($OPTIND - 1))
 
 encryption_key=$*
 
@@ -71,6 +71,10 @@ fi
 if [ -z "$encrypted_db" ]; then
   raise_error "Encrypted db not defined"
 fi
+
+verbose_log "Decrypting db at $encrypted_db"
+verbose_log "Exporting unencrypted db to $decrypted_db"
+verbose_log "Using Encryption key $encryption_key"
 
 sqlite3 $encrypted_db <<EOF
 PRAGMA key=$encryption_key;

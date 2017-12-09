@@ -7,6 +7,8 @@ source "$HOME/dotfiles/shell-helpers/aliases"
 # NVM 
 source "$HOME/dotfiles/shell-helpers/nvm"
 
+source "$HOME/dotfiles/shell-helpers/rbenv"
+
 # Source our nice prompt
 [[ -s ~/dotfiles/bash/prompt.sh ]] && . ~/dotfiles/bash/prompt.sh
 

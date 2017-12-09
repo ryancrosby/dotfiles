@@ -40,6 +40,6 @@ Install homebrew
 
 Run `brew bundle` to install default apps
 
-Change shell, `chsh -s $(which zsh)`
+Change shell, https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
 
 Open iTerm, and change theme to Solarized Dark, and use Source Code Pro font

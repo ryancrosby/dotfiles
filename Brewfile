@@ -10,6 +10,7 @@ brew 'macvim', args: ['with-override-system-vim']
 brew 'rbenv'
 brew 'zsh'
 brew 'zsh-completions'
+brew 'nvm'
 
 brew 'mas' # Required for Mac App Store installs from Brewfile
 

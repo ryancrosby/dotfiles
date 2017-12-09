@@ -8,11 +8,10 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # Go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
-# rbenv shims
-export PATH=~/.rbenv/shims:$PATH
-
 # Custom Command Line Programs
 export PATH="${HOME}/dotfiles/bin:${PATH}"
+
+export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
 
 # Make Homebrew Cask installs go to a sensible location
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"

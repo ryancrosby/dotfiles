@@ -5,6 +5,9 @@
 # Add homebrew paths
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
+# React Native
+export REACT_EDITOR=vscode
+
 # Go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
@@ -12,6 +15,11 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH="${HOME}/dotfiles/bin:${PATH}"
 
 export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+
+# Add local bin of shell scripts
+if [[ -d "${HOME}/.shell-helpers/bin" ]]; then
+  export PATH="${HOME}/.shell-helpers/bin:${PATH}"
+fi
 
 # Make Homebrew Cask installs go to a sensible location
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -27,4 +35,3 @@ export EDITOR=vim
 
 # Brew Python
 #export PATH="/usr/local/share/python:${PATH}"
-

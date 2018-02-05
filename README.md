@@ -43,3 +43,9 @@ Run `brew bundle` to install default apps
 Change shell, https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
 
 Open iTerm, and change theme to Solarized Dark, and use Source Code Pro font
+
+## Other Changes
+
+ - Xcode 9 Themes
+   - [Solarized Light](https://github.com/nelsyeung/Solarized-Light-for-Xcode)
+   - [Solarized Dark] (https://github.com/ArtSabintsev/Solarized-Dark-for-Xcode)

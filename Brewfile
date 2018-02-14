@@ -18,5 +18,17 @@ cask 'evernote'
 cask 'launchbar'
 cask 'textexpander'
 cask 'iterm2'
+cask 'launchrocket'
+
+# https://github.com/sindresorhus/quick-look-plugins
+cask 'qlmarkdown'
+cask 'quicklook-csv'
+cask 'quicklook-json'
+cask 'qlstephen'          # Various text files
+cask 'betterzipql'        # List zip contents
+cask 'qlimagesize'        # Display image size / resolution
+cask 'suspicious-package' # Inspect .pkg files
+cask 'provisionql'        # Inspect IPA files
+cask 'quicklookapk'       # Inspect APK files
 
 # mas 'Wunderlist', id: 410628904

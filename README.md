@@ -30,6 +30,13 @@ http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/#current-directory
 
 VIM is mamanged through vundle.
 
+Additionally this has grown into including all machine configuration I use for my development machine. Some usefule
+utilities I use:
+* [Quick Look Plugins](https://github.com/sindresorhus/quick-look-plugins)
+
+I reference [Awesome Lists](https://github.com/sindresorhus/awesome) often to find new useful utilities, apps, scripts,
+etc.....
+
 ## Using
 
 Install powerline fonts (https://github.com/powerline/fonts)
@@ -49,3 +56,6 @@ Open iTerm, and change theme to Solarized Dark, and use Source Code Pro font
  - Xcode 9 Themes
    - [Solarized Light](https://github.com/nelsyeung/Solarized-Light-for-Xcode)
    - [Solarized Dark] (https://github.com/ArtSabintsev/Solarized-Dark-for-Xcode)
+ - LaunchBar configuration
+   - Create a symlink in ~/Library/Application\ Support/LaunchBar/Actions to ~/Dropbox/Application\ Support/Launchbar\ Actions
+ 

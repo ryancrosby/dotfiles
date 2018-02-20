@@ -11,6 +11,7 @@ brew 'rbenv'
 brew 'zsh'
 brew 'zsh-completions'
 brew 'nvm'
+brew 'reattach-to-user-namespace'   # For system pasteboard integration in tmux
 
 brew 'mas' # Required for Mac App Store installs from Brewfile
 

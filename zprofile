@@ -1,2 +1,2 @@
-source "$HOME/dotfiles/shell-helpers/export"
+source "$HOME/dotfiles/set_path_env_var"
 

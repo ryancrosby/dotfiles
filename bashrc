@@ -1,13 +1,6 @@
-# Environment Variables
-source "$HOME/dotfiles/shell-helpers/export"
+source "$HOME/dotfiles/set_path_env_var"
 
-# Aliases
-source "$HOME/dotfiles/shell-helpers/aliases"
-
-# NVM 
-source "$HOME/dotfiles/shell-helpers/nvm"
-
-source "$HOME/dotfiles/shell-helpers/rbenv"
+source "$HOME/dotfiles/shell-helpers/shell-helpers"
 
 # Source our nice prompt
 [[ -s ~/dotfiles/bash/prompt.sh ]] && . ~/dotfiles/bash/prompt.sh

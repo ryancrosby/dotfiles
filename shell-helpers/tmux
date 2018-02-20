@@ -1,0 +1,6 @@
+# tmux
+alias tma='tmux attach -t'
+alias tms='tmux new-session -s'
+alias tml='tmux list-sessions'
+alias tmk='tmux kill-session -t'
+

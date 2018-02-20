@@ -7,3 +7,6 @@
 
 # Vundle
 vim/bundle/
+
+# zsh completion cache
+zsh/cache/

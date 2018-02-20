@@ -1,0 +1,18 @@
+# Add homebrew paths
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# Go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+# Custom Command Line Programs
+export PATH="${HOME}/dotfiles/bin:${PATH}"
+
+export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+
+# Add local bin of shell scripts
+if [[ -d "${HOME}/.shell-helpers/bin" ]]; then
+  export PATH="${HOME}/.shell-helpers/bin:${PATH}"
+fi
+
+# Brew Python
+#export PATH="/usr/local/share/python:${PATH}"

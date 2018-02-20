@@ -1,0 +1,11 @@
+# Source all shell helpers
+source "$HOME/dotfiles/shell-helpers/env_vars"
+source "$HOME/dotfiles/shell-helpers/functions"
+source "$HOME/dotfiles/shell-helpers/aliases"
+source "$HOME/dotfiles/shell-helpers/tmux"
+source "$HOME/dotfiles/shell-helpers/android"
+source "$HOME/dotfiles/shell-helpers/ios"
+source "$HOME/dotfiles/shell-helpers/nvm"
+source "$HOME/dotfiles/shell-helpers/rbenv"
+source "$HOME/dotfiles/shell-helpers/git"
+

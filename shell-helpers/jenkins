@@ -1,0 +1,6 @@
+JENKINS_DAEMON_PLIST="/usr/local/opt/jenkins/homebrew.mxcl.jenkins.plist"
+
+alias jenkins_start="launchctl load $JENKINS_DAEMON_PLIST"
+alias jenkins_stop="launchctl unload $JENKINS_DAEMON_PLIST"
+alias jenkins_edit_daemon="vim $JENKINS_DAEMON_PLIST"
+

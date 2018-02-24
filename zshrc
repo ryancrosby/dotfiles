@@ -4,6 +4,8 @@ source "$HOME/dotfiles/zsh/setopts.zsh" # zsh configuration
 #source "$HOME/dotfiles/zsh/colors.zsh" # Colors
 source "$HOME/dotfiles/zsh/prompt.zsh" # Prompt, we are using powerline for now
 source "$HOME/dotfiles/zsh/completion.zsh"
+source "$HOME/dotfiles/shell-helpers/jenv"
+source "$HOME/dotfiles/shell-helpers/jenkins"
 source "$HOME/dotfiles/zsh/bindkeys.zsh"
 source "$HOME/dotfiles/shell-helpers/shell-helpers"
 #source ~/.zsh/functions.zsh

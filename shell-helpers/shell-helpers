@@ -8,4 +8,6 @@ source "$HOME/dotfiles/shell-helpers/ios"
 source "$HOME/dotfiles/shell-helpers/nvm"
 source "$HOME/dotfiles/shell-helpers/rbenv"
 source "$HOME/dotfiles/shell-helpers/git"
+source "$HOME/dotfiles/shell-helpers/jenv"
+source "$HOME/dotfiles/shell-helpers/jenkins"
 

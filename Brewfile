@@ -13,9 +13,8 @@ brew 'zsh-completions'
 brew 'nvm'
 brew 'reattach-to-user-namespace'   # For system pasteboard integration in tmux
 
-brew 'mas' # Required for Mac App Store installs from Brewfile
 
-cask 'evernote'
+#cask 'evernote'
 cask 'launchbar'
 cask 'textexpander'
 cask 'iterm2'
@@ -32,4 +31,5 @@ cask 'suspicious-package' # Inspect .pkg files
 cask 'provisionql'        # Inspect IPA files
 cask 'quicklookapk'       # Inspect APK files
 
+#brew 'mas' # Required for Mac App Store installs from Brewfile
 # mas 'Wunderlist', id: 410628904

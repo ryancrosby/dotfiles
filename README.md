@@ -4,7 +4,7 @@ description: My dotfiles
 author: Ryan Crosby
 tags: terminal
 created: 2012 Feb 19
-modified: 2011 Apr 16
+modified: 2018 Apr 19
 
 ---
 
@@ -25,8 +25,7 @@ ZSH configuration was inspired by http://zanshin.net/2013/02/02/zsh-configuratio
 
 Prompt: http://aperiodic.net/phil/prompt/
 http://superuser.com/questions/382503/how-can-i-put-a-newline-in-my-zsh-prompt-without-causing-terminal-redraw-issues
-http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/#current-directory
-
+http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/#current-directory  
 
 VIM is mamanged through vundle.
 
@@ -39,23 +38,37 @@ etc.....
 
 ## Using
 
-Install powerline fonts (https://github.com/powerline/fonts)
+* Install powerline fonts (https://github.com/powerline/fonts)
 
-Open terminal and run `./install`
+* Open terminal and run `./install`
 
-Install homebrew
+* Install [homebrew](https://brew.sh/)
 
-Run `brew bundle` to install default apps
+* Change shell, https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
+** https://stackoverflow.com/a/26321141 - seems to work better than the above
+** append /usr/local/bin/zsh to /etc/shells
+** run `chsh -s /usr/local/bin/zsh`
 
-Change shell, https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
+* Fix zsh compinit warnings
+** https://stackoverflow.com/a/43544733 - compaudit | xargs chmod g-w
+
+* Run `brew bundle` to install default apps
+
+* Install nvm https://github.com/creationix/nvm
+
+* Edit gitconfig of dotfiles repo and set author to email, https://dereenigne.org/git/set-git-email-address-on-a-per-repository-basis/
 
 Open iTerm, and change theme to Solarized Dark, and use Source Code Pro font
 
 ## Other Changes
 
+- [Terminal Themes](https://github.com/lysyi3m/osx-terminal-themes)
  - Xcode 9 Themes
    - [Solarized Light](https://github.com/nelsyeung/Solarized-Light-for-Xcode)
    - [Solarized Dark] (https://github.com/ArtSabintsev/Solarized-Dark-for-Xcode)
  - LaunchBar configuration
    - Create a symlink in ~/Library/Application\ Support/LaunchBar/Actions to ~/Dropbox/Application\ Support/Launchbar\ Actions
  
+## Other Notes
+OS X has a utility to help with the PATH environment variable, https://stackoverflow.com/questions/9832770/where-is-the-default-terminal-path-located-on-mac
+

@@ -10,7 +10,6 @@ brew 'macvim', args: ['with-override-system-vim']
 brew 'rbenv'
 brew 'zsh'
 brew 'zsh-completions'
-brew 'nvm'
 brew 'reattach-to-user-namespace'   # For system pasteboard integration in tmux
 
 

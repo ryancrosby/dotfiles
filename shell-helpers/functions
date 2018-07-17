@@ -1,3 +1,11 @@
+function rc_source {
+  if [ -s $1 ]; then
+    source $1
+  else
+    echo "Could not source file ${1}. File does not exist"
+  fi
+}
+
 # Source our local file, for any environment variables that we
 # don't want to share
 [[ -s ~/.shell-helpers/functions ]] && . ~/.shell-helpers/functions

@@ -3,7 +3,7 @@ source "$HOME/dotfiles/set_path_env_var"
 source "$HOME/dotfiles/shell-helpers/shell-helpers"
 
 # Source our nice prompt
-[[ -s ~/dotfiles/bash/prompt.sh ]] && . ~/dotfiles/bash/prompt.sh
+source "$HOME/dotfiles/bash/prompt.sh"
 
 # make ls command show color output
 alias ls="ls -G"
@@ -12,3 +12,5 @@ alias ls="ls -G"
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+# NVM is configured in shell-helpers/nvm
+#rc_source "$NVM_DIR/bash_completion"

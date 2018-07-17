@@ -7,8 +7,6 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 # Custom Command Line Programs
 export PATH="${HOME}/dotfiles/bin:${PATH}"
 
-export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
-
 # Add local bin of shell scripts
 if [[ -d "${HOME}/.shell-helpers/bin" ]]; then
   export PATH="${HOME}/.shell-helpers/bin:${PATH}"
@@ -16,3 +14,11 @@ fi
 
 # Brew Python
 #export PATH="/usr/local/share/python:${PATH}"
+
+# Sour local path
+local_set_path="${HOME}/.shell-helpers/set_path_env_var"
+[[ -s "${local_set_path}" ]] && . "${local_set_path}"
+
+#if [[ -s "${HOME}/.shell-helpers/set_path_env_var" ]]; then
+  #source "$HOME/.shell-helpers/set_path_env_var"
+#fi

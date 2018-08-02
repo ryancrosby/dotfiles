@@ -1,3 +1,11 @@
+function source_if_exists {
+  if [ -s "$1" ]; then
+    source "$1"
+  else
+    echo "Could not source file ${1}. File does not exist"
+  fi
+}
+
 # Add homebrew paths
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
@@ -15,10 +23,8 @@ fi
 # Brew Python
 #export PATH="/usr/local/share/python:${PATH}"
 
-# Sour local path
-local_set_path="${HOME}/.shell-helpers/set_path_env_var"
-[[ -s "${local_set_path}" ]] && . "${local_set_path}"
+# Set our local path
+source_if_exists "${HOME}/.shell-helpers/set_path_env_var"
 
-#if [[ -s "${HOME}/.shell-helpers/set_path_env_var" ]]; then
-  #source "$HOME/.shell-helpers/set_path_env_var"
-#fi
+source_if_exists "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+

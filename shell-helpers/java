@@ -1,0 +1,11 @@
+# use a function so we don't pollute environment variables
+function setup_java {
+  local home=$(/usr/libexec/java_home)  
+  if [[ -d "$home" ]]; then
+    export JAVA_HOME="$home"
+    export PATH=$JAVA_HOME:$PATH
+  else
+    echo "Java SDK not found, install by running `java --version`" 
+  fi
+}
+setup_java

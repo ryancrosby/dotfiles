@@ -10,4 +10,5 @@ source "$HOME/dotfiles/shell-helpers/git"
 source "$HOME/dotfiles/shell-helpers/jenv"
 source "$HOME/dotfiles/shell-helpers/jenkins"
 source "$HOME/dotfiles/shell-helpers/nvm"
+source "$HOME/dotfiles/shell-helpers/java"
 

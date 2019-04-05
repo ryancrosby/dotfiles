@@ -4,6 +4,7 @@ function setup_java {
   if [[ -d "$home" ]]; then
     export JAVA_HOME="$home"
     export PATH=$JAVA_HOME:$PATH
+    export PATH=$JAVA_HOME/bin:$PATH
   else
     echo "Java SDK not found, install by running `java --version`" 
   fi

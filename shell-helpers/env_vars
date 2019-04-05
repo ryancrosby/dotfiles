@@ -1,6 +1,6 @@
 # Source our local file, for any environment variables that we
 # don't want to share
-source_if_exists "~/.shell-helpers/environment-variables"
+source_if_exists ~/.shell-helpers/environment-variables
 
 # React Native
 export REACT_EDITOR=vscode

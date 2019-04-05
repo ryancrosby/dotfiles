@@ -8,5 +8,5 @@ function _update_nvm_node_version() {
     nvm use default
   fi
 }
-chpwd_functions+=(_update_nvm_node_version)
+#chpwd_functions+=(_update_nvm_node_version)
 #

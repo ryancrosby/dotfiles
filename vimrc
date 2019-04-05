@@ -29,19 +29,20 @@ Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mileszs/ack.vim'
-Plugin 'Keithbsmiley/swift.vim'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'w0rp/ale'
 
 " Bundle 'Rip-Rip/clang_complete'
 " Bundle 'stephenprater/cocoa.vim'
 
 " Requires additional config lines in this file
 " Bundle 'altercation/vim-colors-solarized'
-
+"
+" Plugin 'Keithbsmiley/swift.vim'
 " Bundle '/Users/rcrosby/development/pragmatic-objc/.git'
 " Plugin 'scrooloose/syntastic'
 " Bundle 'majutsushi/tagbar'
@@ -95,6 +96,8 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
+let g:ale_sign_column_always = 1
 
 " Let Command P work with project directories
 "let g:ctrlp_root_markers = ['.ycm_extra_conf.py']

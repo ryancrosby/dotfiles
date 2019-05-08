@@ -1,4 +1,5 @@
 source "$HOME/dotfiles/set_path_env_var"
+source "$HOME/dotfiles/z/z.sh" # Z (jump around)
 
 source "$HOME/dotfiles/shell-helpers/shell-helpers"
 

@@ -8,6 +8,8 @@ export REACT_EDITOR=vscode
 # Make Homebrew Cask installs go to a sensible location
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
+
 # Shorten key timeout, this is for switching to vi mode editing a zsh prompt
 export KEYTIMEOUT=1
 

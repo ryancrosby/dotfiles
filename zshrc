@@ -2,6 +2,7 @@ source "$HOME/dotfiles/set_path_env_var"
 source "$HOME/dotfiles/shell-helpers/shell-helpers"
 #source "$HOME/dotfiles/zsh/colors.zsh" # colors
 source "$HOME/dotfiles/zsh/setopts.zsh" # zsh configuration
+source "$HOME/dotfiles/z/z.sh" # Z (jump around)
 
 #source ~/.zsh/exports.zsh # Exports (Environment Variables) these get set in the .zprofile
 #source "$HOME/dotfiles/zsh/colors.zsh" # Colors
@@ -21,4 +22,3 @@ source "$HOME/dotfiles/zaw/zaw.zsh"
 
 # syntax highlighting
 source "$HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-

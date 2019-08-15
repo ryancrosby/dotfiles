@@ -9,7 +9,7 @@
     }
   ],
   "vim.autoindent": true,
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 2,
 
   // The number of spaces a tab is equal to. This setting is overriden
   // based on the file contents when `editor.detectIndentation` is true.

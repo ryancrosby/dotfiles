@@ -3,4 +3,3 @@ export NVM_DIR=~/.nvm
 
 # Source nvm if it is currently installed
 source_if_exists "$NVM_DIR/nvm.sh"
-

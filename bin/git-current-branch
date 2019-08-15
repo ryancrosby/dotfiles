@@ -1,0 +1,4 @@
+#!/bin/sh
+# https://github.com/jwiegley/git-scripts/blob/master/git-current-branch
+
+git rev-parse --abbrev-ref HEAD

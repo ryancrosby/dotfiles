@@ -1,0 +1,7 @@
+#!/bin/sh
+# https://github.com/jwiegley/git-scripts/blob/master/git-push-branch
+
+# Force pushes a branch to origin, if a branch name is not specified then the
+# current branch is used.
+BRANCH="${1:-$(git current-branch)}"
+git push -f origin $BRANCH:refs/heads/$BRANCH

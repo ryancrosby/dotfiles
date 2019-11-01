@@ -1,0 +1,7 @@
+#!/bin/sh
+# https://github.com/jwiegley/git-scripts/blob/master/git-link-upstream
+
+# Sets the tracking branch to the remote branch of the same name,
+# remote branch must exist.
+BRANCH=$(git-current-branch)
+git branch --set-upstream-to=origin/$BRANCH $BRANCH

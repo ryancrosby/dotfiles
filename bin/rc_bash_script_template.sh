@@ -23,6 +23,13 @@ EOF
    exit 0
 }
 
+# Get script output and status
+# https://mywiki.wooledge.org/BashFAQ/002
+
+# iterate over command output
+# https://stackoverflow.com/questions/2859908/iterating-over-each-line-of-ls-l-output
+
+
 parse_options()
 {
   # http://wiki.bash-hackers.org/howto/getopts_tutorial

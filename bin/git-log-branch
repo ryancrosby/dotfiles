@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+# Read argument as branch, if not passed use current branch
+BRANCH="${1:-$(git current-branch)}"
+
+# https://stackoverflow.com/questions/4649356/how-do-i-run-git-log-to-see-changes-only-for-a-specific-branch
+git log origin/develop..$BRANCH

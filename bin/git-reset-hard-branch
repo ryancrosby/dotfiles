@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Resets the current branch to the HEAD of the given remote branch
+# or the remote for the current branch if none is given
+BRANCH="${1:-$(git current-branch)}"
+
+read -p "You will loose any uncommitted changes, are you sure? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    git reset --hard origin/$BRANCH
+fi
+

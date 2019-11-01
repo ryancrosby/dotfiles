@@ -103,9 +103,9 @@ function _update_ruby_version() {
       fi
     fi
 }
-chpwd_functions+=(_update_ruby_version)
+# chpwd_functions+=(_update_ruby_version)
 # Execute the function once, to set initial value
-_update_ruby_version
+# _update_ruby_version
 
 # Context: user@hostname (who am I and where am I)
 prompt_mode() {
@@ -222,7 +222,7 @@ build_prompt() {
 build_right_prompt() {
   prompt_start
   prompt_set_segment_separator " "
-  prompt_ruby
+  #prompt_ruby
   prompt_end
 }
 
@@ -234,7 +234,7 @@ set_prompt() {
 
   export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
 
-  RPS1="%{%f%b%k%}$(build_right_prompt) "
+  #RPS1="%{%f%b%k%}$(build_right_prompt) "
   #RPS1="${PR_RED}${ruby_version}%{$reset_color%}"
 }
 

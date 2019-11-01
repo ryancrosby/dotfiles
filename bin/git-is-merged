@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# Force declaring variables
+set -o nounset
+
+# Exit script if we ever hit an error
+set -o errexit
+
+scriptname=$0
+verbose=false
+master="origin/develop"
+branch=""
+
+function usage () {
+   cat <<EOF
+Usage: $scriptname [-m] [-v] [-h] branch
+   -m   master branch to compare to   
+   -v   executes and prints out verbose messages
+   -h   displays basic help
+EOF
+   exit 0
+}
+
+parse_options()
+{
+  # http://wiki.bash-hackers.org/howto/getopts_tutorial
+  while getopts ":hvm:" opt; do
+    case $opt in
+      m)  master=$OPTARG ;;
+      v)  verbose=true ;;
+      h)  usage ;;
+      \?) echo "Invalid option: -$OPTARG" >&2 ;;
+    esac
+  done
+}
+
+function verbose_log {
+  if $verbose ; then
+    echo $1
+  fi
+}
+
+raise_error()
+{
+  echo Error: $@
+  exit 1
+}
+
+parse_options $*
+
+shift $(($OPTIND - 1))
+
+branch=$*
+if [ -z "$branch" ]; then
+  branch=$(git current-branch)
+fi
+
+verbose_log "Comparing $branch to $master"
+
+cmd="git cherry $master $branch"
+verbose_log "$cmd"
+if output=$($cmd); then
+  verbose_log "$output"
+  if [ -z "$output" ]; then
+    verbose_log "all commits on $branch are on $master"
+    exit 0
+  else
+    verbose_log "$branch has commits not on $master"
+    exit 1
+  fi
+else
+  verbose_log $output
+  exit 1
+fi
+

@@ -1,0 +1,111 @@
+#!/bin/bash
+
+# Force declaring variables
+set -o nounset
+
+# Exit script if we ever hit an error
+set -o errexit
+
+scriptname=$0
+verbose=false
+dryrun=false
+master=""
+repository="origin"
+author="rcrosby@cvent.com"
+
+# https://github.com/arc90/git-sweep
+
+function usage () {
+   cat <<EOF
+Usage: $scriptname [-v] [-h] master
+   -v   executes and prints out verbose messages
+   -d   do not remove anything, just report on what would be removed
+   -r   the remote repository to compare against. default: origin
+   -a   the author to keep commits for.
+   -h   displays basic help
+EOF
+   exit 0
+}
+
+parse_options()
+{
+  # http://wiki.bash-hackers.org/howto/getopts_tutorial
+  while getopts ":hdva:r:m:" opt; do
+    case $opt in
+      v)  verbose=true ;;
+      d)  dryrun=true ;;
+      r)  repository=$OPTARG ;;
+      a)  author=$OPTARG ;;
+      h)  usage ;;
+      \?) echo "Invalid option: -$OPTARG" >&2 ;;
+    esac
+  done
+}
+
+function verbose_log {
+  if $verbose ; then
+    echo $1
+  fi
+}
+
+function delete_branch {
+  if $dryrun; then
+    echo "[DRY RUN] Would delete local branch $branch"
+  else
+    if git branch -D $1; then
+      echo "Deleted local branch: $1"
+    else
+      echo "Could not delete local branch: $1"
+    fi
+  fi
+}
+
+# No echoing in this function, it returns a value
+function is_not_my_branch {
+  # https://stackoverflow.com/questions/29738751/with-set-e-is-it-possible-to-ignore-errors-for-certain-commands
+  other_commits=$(git log $1..$2 --format='%H %ae' | grep -v $author) || (echo "grep returns non zero if no matches, ignore so we can keep set -e" > /dev/null)
+  if [[ $? && -z "$other_commits" ]]; then
+    # "$2 has commits by $author"
+    echo "false"
+  else
+    # "$2 has no commits by $author"
+    echo "true"
+  fi
+}
+
+raise_error()
+{
+  echo Error: $@
+  exit 1
+}
+
+
+parse_options $*
+
+shift $(($OPTIND - 1))
+
+master=$*
+if [ -z "$master" ]; then
+  master="develop"
+fi
+
+echo "Removing local branches merged to $repository/$master"
+
+git fetch
+git remote prune origin
+
+git branch | grep -v "$master$" | grep -v '\* ' | while read -r branch ; do
+  unmerged_commits=$(git cherry $repository/$master $branch)
+  if [[ $? && -z "$unmerged_commits" ]]; then
+    delete_branch $branch
+  else
+    # git log $repository/$master..$branch --oneline
+    should_delete=$(is_not_my_branch $repository/$master $branch)
+    if [ "$should_delete" = "true" ]; then
+      verbose_log "Delete unmerged branch '$branch' since $author has no commits on it"
+      delete_branch $branch
+    else
+      verbose_log "Leaving $branch since it is not merged"
+    fi
+  fi
+done

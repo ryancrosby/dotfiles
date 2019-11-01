@@ -1,3 +1,4 @@
+source "$HOME/dotfiles/dotfiles_global"
 source "$HOME/dotfiles/set_path_env_var"
 source "$HOME/dotfiles/z/z.sh" # Z (jump around)
 

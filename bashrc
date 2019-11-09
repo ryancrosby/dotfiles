@@ -1,11 +1,13 @@
 source "$HOME/dotfiles/dotfiles_global"
-source "$HOME/dotfiles/set_path_env_var"
-source "$HOME/dotfiles/z/z.sh" # Z (jump around)
+#DOTFILES_LOG_LEVEL=3
 
-source "$HOME/dotfiles/shell-helpers/shell-helpers"
+df_source "$HOME/dotfiles/set_path_env_var"
+df_source "$HOME/dotfiles/z/z.sh" # Z (jump around)
+
+df_source "$HOME/dotfiles/shell-helpers/shell-helpers"
 
 # Source our nice prompt
-source "$HOME/dotfiles/bash/prompt.sh"
+df_source "$HOME/dotfiles/bash/prompt.sh"
 
 # make ls command show color output
 alias ls="ls -G"

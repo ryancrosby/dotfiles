@@ -23,3 +23,5 @@ df_source_if_exists "/Applications/Visual Studio Code.app/Contents/Resources/app
 # Yarn Install
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# Cheat - https://github.com/cheat/cheat, install via brew
+export CHEAT_CONFIG_PATH="~/dotfiles/cheat/conf.yml"

@@ -70,6 +70,11 @@ Open iTerm, and change theme to Solarized Dark, and use Source Code Pro font
   - [Solarized Light](https://github.com/nelsyeung/Solarized-Light-for-Xcode)
   - [Solarized Dark](https://github.com/ArtSabintsev/Solarized-Dark-for-Xcode)
 
+## Related Reading
+
+- Command line documentation should use [docopt](http://docopt.org/)
+- [Cheat](https://github.com/cheat/cheat) is used as a command line helper
+
 ## Other Notes
 
 OS X has a utility to help with the PATH environment variable, https://stackoverflow.com/questions/9832770/where-is-the-default-terminal-path-located-on-mac

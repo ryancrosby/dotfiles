@@ -53,6 +53,8 @@ etc.....
 
 - Install nvm https://github.com/creationix/nvm
 
+- Install Yarn via curl command
+
 - Edit gitconfig of dotfiles repo and set author to email, https://dereenigne.org/git/set-git-email-address-on-a-per-repository-basis/
 
 Open iTerm, and change theme to Solarized Dark, and use Source Code Pro font

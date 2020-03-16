@@ -1,7 +1,7 @@
 # use a function so we don't pollute environment variables
 function setup_java {
   local home=$(/usr/libexec/java_home)  
-  if [[ -d "$home" ]]; then
+  if [[ -d "$home/bin" ]]; then
     export JAVA_HOME="$home"
     export PATH=$JAVA_HOME:$PATH
     export PATH=$JAVA_HOME/bin:$PATH

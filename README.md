@@ -40,6 +40,10 @@ etc.....
 
 ## Using
 
+- Install Xcode
+
+- Install Command Line Tools - `xcode-select --install`
+
 - Install powerline fonts (https://github.com/powerline/fonts)
 
 - Open terminal and run `./install`

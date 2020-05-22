@@ -11,4 +11,7 @@ df_source "$HOME/dotfiles/shell-helpers/jenv"
 df_source "$HOME/dotfiles/shell-helpers/jenkins"
 df_source "$HOME/dotfiles/shell-helpers/nvm"
 df_source "$HOME/dotfiles/shell-helpers/java"
+df_source "$HOME/dotfiles/shell-helpers/javascript"
+
+df_source "$HOME/.shell-helpers/javascript"
 

@@ -6,18 +6,11 @@
 
 brew 'ack'
 brew 'vim' 
-brew 'macvim', args: ['with-override-system-vim']
 brew 'rbenv'
 brew 'zsh'
 brew 'zsh-completions'
 brew 'reattach-to-user-namespace'   # For system pasteboard integration in tmux
 
-
-#cask 'evernote'
-cask 'launchbar'
-cask 'textexpander'
-cask 'iterm2'
-cask 'launchrocket'
 
 # https://github.com/sindresorhus/quick-look-plugins
 cask 'qlmarkdown'

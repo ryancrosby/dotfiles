@@ -44,7 +44,7 @@ etc.....
 
 - Install Command Line Tools - `xcode-select --install`
 
-- Install powerline fonts (https://github.com/powerline/fonts)
+- Install powerline fonts (https://github.com/powerline/fonts) https://medium.com/@caulfieldOwen/programming-fonts-a-visual-guide-567fc210d2c6
 
 - Open terminal and run `./install`
 

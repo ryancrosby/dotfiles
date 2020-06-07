@@ -230,8 +230,7 @@ build_right_prompt() {
 set_prompt() {
 
   PS1="%{%f%b%k%}$(build_prompt) "
-  ARGHSDF="%{%f%b%k%}$(build_prompt) "
-
+  
   export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
 
   #RPS1="%{%f%b%k%}$(build_right_prompt) "

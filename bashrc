@@ -6,8 +6,7 @@ df_source "$HOME/dotfiles/z/z.sh" # Z (jump around)
 
 df_source "$HOME/dotfiles/shell-helpers/shell-helpers"
 
-# Source our nice prompt
-df_source "$HOME/dotfiles/bash/prompt.sh"
+eval "$(starship init bash)"
 
 # make ls command show color output
 alias ls="ls -G"

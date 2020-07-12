@@ -14,9 +14,3 @@ alias ls="ls -G"
 # colorize everything
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-
-# NVM is configured in shell-helpers/nvm
-#rc_source "$NVM_DIR/bash_completion"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

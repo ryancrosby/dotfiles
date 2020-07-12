@@ -1,6 +1,9 @@
 # Add homebrew paths
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
+# Starship
+export STARSHIP_CONFIG="${HOME}/dotfiles/starship.toml"
+
 # Go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 

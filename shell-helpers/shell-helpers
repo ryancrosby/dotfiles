@@ -2,6 +2,7 @@
 df_source "$HOME/dotfiles/shell-helpers/env_vars"
 df_source "$HOME/dotfiles/shell-helpers/functions"
 df_source "$HOME/dotfiles/shell-helpers/aliases"
+df_source "$HOME/dotfiles/shell-helpers/asdf.sh"
 df_source "$HOME/dotfiles/shell-helpers/tmux"
 df_source "$HOME/dotfiles/shell-helpers/android"
 df_source "$HOME/dotfiles/shell-helpers/ios"
@@ -12,5 +13,5 @@ df_source "$HOME/dotfiles/shell-helpers/jenkins"
 df_source "$HOME/dotfiles/shell-helpers/java"
 df_source "$HOME/dotfiles/shell-helpers/javascript"
 
-df_source "$HOME/.shell-helpers/javascript"
+df_source_if_exists "$HOME/.shell-helpers/javascript"
 

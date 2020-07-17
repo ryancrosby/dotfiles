@@ -47,7 +47,7 @@ etc.....
 
 - Install Command Line Tools - `xcode-select --install`
 
-- Install powerline fonts (https://github.com/powerline/fonts) https://medium.com/@caulfieldOwen/programming-fonts-a-visual-guide-567fc210d2c6
+- Install [nerd fonts](https://www.nerdfonts.com/cheat-sheet) https://medium.com/@caulfieldOwen/programming-fonts-a-visual-guide-567fc210d2c6
 
 - Open terminal and run `./install`
 
@@ -56,11 +56,9 @@ etc.....
 - Fix zsh compinit warnings
   \*\* https://stackoverflow.com/a/43544733 - compaudit | xargs chmod g-w
 
-- Run `brew bundle` to install default apps
+- Run `brew bundle` to install default apps (deprecated)
 
-- Install nvm https://github.com/creationix/nvm
-
-- Install Yarn via curl command
+- https://github.com/asdf-vm/asdf-nodejs
 
 - Edit gitconfig of dotfiles repo and set author to email, https://dereenigne.org/git/set-git-email-address-on-a-per-repository-basis/
 

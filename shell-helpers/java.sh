@@ -1,12 +1,15 @@
 # use a function so we don't pollute environment variables
 function setup_java {
-  local home=$(/usr/libexec/java_home)  
+  local home=$(/usr/libexec/java_home)
+  local asdf_java="$HOME/.asdf/java"
   if [[ -d "$home/bin" ]]; then
     export JAVA_HOME="$home"
     export PATH=$JAVA_HOME:$PATH
     export PATH=$JAVA_HOME/bin:$PATH
+  elif [[ -d "$asdf_java" ]]; then
+    echo "asdf java found"
   else
     echo "Java SDK not found, install by running `java --version`" 
   fi
 }
-setup_java
+#setup_java

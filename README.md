@@ -43,22 +43,34 @@ etc.....
 
 ## Using
 
+- Change Shell to zsh, `chsh -s /bin/zsh`
+
 - Install Xcode
 
 - Install Command Line Tools - `xcode-select --install`
 
-- Install [nerd fonts](https://www.nerdfonts.com/cheat-sheet) https://medium.com/@caulfieldOwen/programming-fonts-a-visual-guide-567fc210d2c6
+- Install OTF Fonts from [Nerd Fonts](https://www.nerdfonts.com/font-downloads) for Starship and ligatures in IDEs. See also [nerd fonts cheat sheet](https://www.nerdfonts.com/cheat-sheet)
+
+- Configure [SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) for GitHub.
 
 - Open terminal and run `./install`
 
 - Install [homebrew](https://brew.sh/)
 
+- Install [zsh-completions](https://github.com/zsh-users/zsh-completions) via homebrew
+
 - Fix zsh compinit warnings
   \*\* https://stackoverflow.com/a/43544733 - compaudit | xargs chmod g-w
 
-- Run `brew bundle` to install default apps (deprecated)
+- Install VS Code (via download)
 
-- https://github.com/asdf-vm/asdf-nodejs
+- Install iTerm (via download)
+
+- Install [asdf](https://asdf-vm.com/#/) via homebrew.
+
+- Install [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
+
+- Install [asdf-java](https://github.com/halcyon/asdf-java), use an adopt-open version of java
 
 - Edit gitconfig of dotfiles repo and set author to email, https://dereenigne.org/git/set-git-email-address-on-a-per-repository-basis/
 

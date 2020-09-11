@@ -1,7 +1,0 @@
-# Configure the java version manager
-# http://www.jenv.be
-#
-# good tutorial - http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/
-
-# Init jenv
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi

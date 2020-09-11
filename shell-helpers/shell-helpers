@@ -8,10 +8,8 @@ df_source "$HOME/dotfiles/shell-helpers/android"
 df_source "$HOME/dotfiles/shell-helpers/ios"
 df_source "$HOME/dotfiles/shell-helpers/rbenv"
 df_source "$HOME/dotfiles/shell-helpers/git"
-df_source "$HOME/dotfiles/shell-helpers/jenv"
 df_source "$HOME/dotfiles/shell-helpers/jenkins"
-df_source "$HOME/dotfiles/shell-helpers/java"
+df_source "$HOME/dotfiles/shell-helpers/java.sh"
 df_source "$HOME/dotfiles/shell-helpers/javascript"
 
 df_source_if_exists "$HOME/.shell-helpers/javascript"
-

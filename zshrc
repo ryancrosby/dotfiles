@@ -3,6 +3,7 @@ source "$HOME/dotfiles/dotfiles_global"
 #DOTFILES_LOG_LEVEL=3
 
 df_source "$HOME/dotfiles/set_path_env_var"
+df_source "$HOME/.asdf/plugins/java/set-java-home.zsh"
 df_source "$HOME/dotfiles/shell-helpers/shell-helpers"
 #source "$HOME/dotfiles/zsh/colors.zsh" # colors
 df_source "$HOME/dotfiles/zsh/setopts.zsh" # zsh configuration

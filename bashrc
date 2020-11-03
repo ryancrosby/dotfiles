@@ -1,8 +1,9 @@
-source "$HOME/dotfiles/dotfiles_global"
+source "$HOME/dotfiles/dotfiles_global.sh"
 #DOTFILES_LOG_LEVEL=3
 
 df_source "$HOME/dotfiles/set_path_env_var"
-df_source "$HOME/dotfiles/z/z.sh" # Z (jump around)
+# Raises errors currently
+#df_source "$HOME/dotfiles/z/z.sh" # Z (jump around)
 df_source "$HOME/.asdf/plugins/java/set-java-home.bash"
 
 df_source "$HOME/dotfiles/shell-helpers/shell-helpers"

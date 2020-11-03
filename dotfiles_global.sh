@@ -36,22 +36,22 @@ function df_log {
 
 # args: message, tag (string, optional)
 function df_log_error {
-  df_log $1 0 $2
+  df_log "$1" 0 "$2"
 }
 
 # args: message, tag (string, optional)
 function df_log_warn {
-  df_log $1 1 $2
+  df_log "$1" 1 "$2"
 }
 
 # args: message, tag (string, optional)
 function df_log_info {
-  df_log $1 2 $2
+  df_log "$1" 2 "$2"
 }
 
 # args: message, tag (string, optional)
 function df_log_debug {
-  df_log $1 3 $2
+  df_log "$1" 3 "$2"
 }
 
 function df_source {
@@ -66,7 +66,7 @@ function df_source {
 
 function df_source_if_exists {
   if [ -s "$1" ]; then
-    df_source $1
+    df_source "$1"
   else
     echo "Could not source file ${1}. File does not exist"
   fi  

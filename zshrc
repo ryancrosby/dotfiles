@@ -1,5 +1,5 @@
 
-source "$HOME/dotfiles/dotfiles_global"
+source "$HOME/dotfiles/dotfiles_global.sh"
 #DOTFILES_LOG_LEVEL=3
 
 df_source "$HOME/dotfiles/set_path_env_var"

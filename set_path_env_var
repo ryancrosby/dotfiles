@@ -21,8 +21,6 @@ fi
 # Set our local path
 df_source_if_exists "${HOME}/.shell-helpers/set_path_env_var"
 
-df_source_if_exists "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
 # Yarn Install
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

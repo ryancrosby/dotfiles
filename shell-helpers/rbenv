@@ -1,7 +1,0 @@
-if which rbenv > /dev/null; then
-  df_log_info "initializing rbenv" "rbenv"
-  eval "$(rbenv init -)";
-else
-  df_log_warn "rbenv not found" "rbenv"
-fi
-

@@ -16,7 +16,8 @@ if [[ -d "${HOME}/.shell-helpers/bin" ]]; then
 fi
 
 # Brew Python
-#export PATH="/usr/local/share/python:${PATH}"
+export PATH="/usr/local/share/python:${PATH}"
+export PATH="${HOME}/Library/Python/3.9/bin:${PATH}"
 
 # Set our local path
 df_source_if_exists "${HOME}/.shell-helpers/set_path_env_var"

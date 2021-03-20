@@ -10,6 +10,8 @@ modified: 2019 Dec 30
 
 ## My dotfiles
 
+[![Build Status](https://travis-ci.com/ryancrosby/dotfiles.svg?branch=master)](https://travis-ci.com/ryancrosby/dotfiles)
+
 These are my dotfiles, I gained much inspiration from
 [Michael Smalley](http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/)
 . They are a work in progress, as I am only adding what I understand. There are many dotfile repos out

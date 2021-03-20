@@ -11,3 +11,4 @@ git:
   
 script:
   - shellcheck *.sh
+  - shellcheck shell-helpers/*

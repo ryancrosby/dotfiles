@@ -17,7 +17,7 @@
     ~/.zprofile: zprofile
     ~/.gemrc: gemrc
     ~/.lldbinit: lldbinit 
-    ~/Library/Application Support/Code/User/settings.json: vscode_settings.json
+    ~/.asdfrc: asdfrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

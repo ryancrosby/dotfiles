@@ -91,6 +91,7 @@ Open iTerm, and change theme to Solarized Dark, and use Source Code Pro font
 
 - Command line documentation should use [docopt](http://docopt.org/)
 - [Cheat](https://github.com/cheat/cheat) is used as a command line helper
+- [Bash Helper](https://github.com/tcnksm/bash-init)
 
 ## Other Notes
 

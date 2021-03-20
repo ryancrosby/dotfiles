@@ -4,7 +4,6 @@ source "$HOME/dotfiles/dotfiles_global.sh"
 df_source "$HOME/dotfiles/set_path_env_var"
 # Raises errors currently
 #df_source "$HOME/dotfiles/z/z.sh" # Z (jump around)
-df_source "$HOME/.asdf/plugins/java/set-java-home.bash"
 
 df_source "$HOME/dotfiles/shell-helpers/shell-helpers"
 

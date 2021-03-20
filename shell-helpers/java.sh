@@ -5,7 +5,13 @@ function setup_java {
   df_log_debug "checking $home/bin"
   if [[ -d "$HOME/.asdf/plugins/java" ]]; then
     df_log_debug "Configuring asdf Java"
-    df_source $HOME/.asdf/plugins/java/set-java-home.zsh
+    if [[ $DF_MYSHELL == "zsh" ]]; then
+      df_source $HOME/.asdf/plugins/java/set-java-home.zsh
+    elif [[ $DF_MYSHELL == "bash" ]]; then
+      df_source $HOME/.asdf/plugins/java/set-java-home.bash
+    else
+      df_log_warn "Java is not supported in shell $DF_MYSHELL"
+    fi
   elif [[ -n "$home" ]] && [[ -d "$home/bin" ]]; then
     df_log_debug "Configuring Java Home to $JAVA_HOME"
     export JAVA_HOME="$home"

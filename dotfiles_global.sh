@@ -72,6 +72,21 @@ function df_source_if_exists {
   fi  
 }
 
-function source_if_exists {
-  df_source_if_exists $1
-}
+unset DF_MYSHELL
+unset DF_MYSHELL_PATH
+if [ -n "$ZSH_VERSION" ] && type zstyle >/dev/null 2>&1; then        # zsh
+  df_log_info "zsh shell detected"
+  DF_MYSHELL='zsh'
+  DF_MYSHELL_PATH=`command -v zsh`
+elif [ -x "$BASH" ] && shopt -q >/dev/null 2>&1; then                # bash
+  df_log_info "bash shell detected"
+  DF_MYSHELL='bash'
+  DF_MYSHELL_PATH=`command -v bash`
+elif [ -x "$shell" ] && which setenv |grep builtin >/dev/null; then  # tcsh
+  echo "DANGER: this script is likely not compatible with C shells!"
+  sleep 5
+  setenv DF_MYSHELL_PATH "$shell"
+else
+  df_log_error "DANGER: Shell could not be determined, unsupported shell."
+  sleep 5
+fi

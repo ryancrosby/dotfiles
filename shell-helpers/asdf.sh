@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 df_source "$HOME/dotfiles/asdf/asdf.sh"
 
 if [[ $DF_MYSHELL == "zsh" ]]; then

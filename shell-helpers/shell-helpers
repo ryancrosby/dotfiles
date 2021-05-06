@@ -1,7 +1,9 @@
+# shellcheck shell=bash
 # Source all shell helpers
 df_source "$HOME/dotfiles/shell-helpers/env_vars"
 df_source "$HOME/dotfiles/shell-helpers/functions"
 df_source "$HOME/dotfiles/shell-helpers/aliases"
+df_source "$HOME/dotfiles/shell-helpers/fzf.sh"
 df_source "$HOME/dotfiles/shell-helpers/asdf.sh"
 df_source "$HOME/dotfiles/shell-helpers/tmux"
 df_source "$HOME/dotfiles/shell-helpers/android"

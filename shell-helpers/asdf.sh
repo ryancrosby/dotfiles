@@ -1,5 +1,5 @@
 # shellcheck shell=bash
-df_source "$HOME/dotfiles/asdf/asdf.sh"
+df_source "$(brew --prefix asdf)/asdf.sh"
 
 if [[ $DF_MYSHELL == "zsh" ]]; then
     fpath=(${ASDF_DIR}/completions $fpath)

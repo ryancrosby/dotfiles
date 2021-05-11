@@ -54,7 +54,7 @@ cheatpaths:
     readonly: false
 
   - name: work
-    path: ~/.shell-helpers/cheatsheets
+    path: ~/local-dotfiles/cheatsheets
     tags: [work]
     readonly: false
     

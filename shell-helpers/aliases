@@ -1,6 +1,6 @@
 # Source our local file, for any environment variables that we
 # don't want to share
-df_source_if_exists ~/.shell-helpers/aliases
+df_source_if_exists ~/local-dotfiles/aliases
 
 # JSON Parsing shortcut
 alias pp="python -m json.tool"

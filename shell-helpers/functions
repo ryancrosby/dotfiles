@@ -1,4 +1,4 @@
 # Source our local file, for any environment variables that we
 # don't want to share
-df_source_if_exists "$HOME/.shell-helpers/functions"
+df_source_if_exists "$HOME/local-dotfiles/functions"
 

@@ -11,8 +11,8 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH="${HOME}/dotfiles/bin:${PATH}"
 
 # Add local bin of shell scripts
-if [[ -d "${HOME}/.shell-helpers/bin" ]]; then
-  export PATH="${HOME}/.shell-helpers/bin:${PATH}"
+if [[ -d "${HOME}/local-dotfiles/bin" ]]; then
+  export PATH="${HOME}/local-dotfiles/bin:${PATH}"
 fi
 
 # Brew Python
@@ -20,7 +20,7 @@ export PATH="/usr/local/share/python:${PATH}"
 export PATH="${HOME}/Library/Python/3.9/bin:${PATH}"
 
 # Set our local path
-df_source_if_exists "${HOME}/.shell-helpers/set_path_env_var"
+df_source_if_exists "${HOME}/local-dotfiles/set_path_env_var"
 
 # Yarn Install
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

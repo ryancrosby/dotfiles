@@ -69,8 +69,26 @@ function df_source_if_exists {
   if [ -s "$1" ]; then
     df_source "$1"
   else
-    echo "Could not source file ${1}. File does not exist"
+    df_log_warn "Could not source file ${1}. File does not exist"
   fi  
+}
+
+function df_append_path {
+  if [[ ":$PATH:" == *":$1:"* ]]; then
+    df_log_info "$1 already exits in path."
+  else
+    df_log_info "Appending $1 to path."
+    export PATH=$PATH:$1
+  fi
+}
+
+function df_prepend_path {
+  if [[ ":$PATH:" == *":$1:"* ]]; then
+    df_log_info "$1 already exits in path."
+  else
+    df_log_info "Prepending $1 to path."
+    export PATH=$1:$PATH
+  fi
 }
 
 unset DF_MYSHELL

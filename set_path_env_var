@@ -1,29 +1,23 @@
 # Add homebrew paths
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+df_prepend_path "/usr/local/bin"
+df_prepend_path "/usr/local/sbin"
 
 # Starship
 export STARSHIP_CONFIG="${HOME}/dotfiles/starship.toml"
 
 # Go
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+df_append_path "/usr/local/opt/go/libexec/bin"
 
 # Custom Command Line Programs
-export PATH="${HOME}/dotfiles/bin:${PATH}"
+df_prepend_path "${HOME}/dotfiles/bin"
 
 # Add local bin of shell scripts
 if [[ -d "${HOME}/local-dotfiles/bin" ]]; then
-  export PATH="${HOME}/local-dotfiles/bin:${PATH}"
+  df_prepend_path "${HOME}/local-dotfiles/bin"
 fi
-
-# Brew Python
-export PATH="/usr/local/share/python:${PATH}"
-export PATH="${HOME}/Library/Python/3.9/bin:${PATH}"
 
 # Set our local path
 df_source_if_exists "${HOME}/local-dotfiles/set_path_env_var"
-
-# Yarn Install
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Cheat - https://github.com/cheat/cheat, install via brew
 export CHEAT_CONFIG_PATH="~/dotfiles/cheat/conf.yml"

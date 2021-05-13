@@ -2,8 +2,6 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.bash_profile: bash_profile
-    ~/.bashrc: bashrc
     ~/.gitignore: gitignore
     ~/.sqliterc: sqliterc
     ~/.mavenrc: mavenrc

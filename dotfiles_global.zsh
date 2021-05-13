@@ -1,6 +1,14 @@
+#! /bin/zsh
+
 # shellcheck shell=bash
-DOTFILES_LOG_START=$SECONDS
-DOTFILES_LOG_LEVEL=1
+local DOTFILES_LOG_START=$SECONDS
+
+if [ -z "${DOTFILES_LOG_LEVEL}" ]; then 
+    DOTFILES_LOG_LEVEL=1
+fi
+
+# shellcheck source=df_colors.zsh
+source ~/dotfiles/df_colors.zsh
 
 # returns string representation of log level
 function df_log_level {
@@ -31,8 +39,14 @@ function df_log {
   fi
   local log_tag=${3:-dotfiles}
   local ELAPSED_TIME_SECONDS=$((SECONDS - DOTFILES_LOG_START))
+  local log_colors=(
+    "${DF_FONT_STYLES[ERROR]}"
+    "${DF_FONT_STYLES[WARN]}"
+    "${DF_FONT_STYLES[BLUE]}"
+    "${DF_FONT_STYLES[GREEN]}"
+  )
   
-  echo "[${ELAPSED_TIME_SECONDS}s $log_tag] $(df_log_level "$log_level"): $1"
+  echo "${DF_FONT_STYLES[BOLD]}[$log_tag]${log_colors[log_level]} $(df_log_level "$log_level"):${DF_FONT_STYLES[RESET]} $1 ${DF_FONT_STYLES[YELLOW]}+${ELAPSED_TIME_SECONDS}s${DF_FONT_STYLES[RESET]}"
 }
 
 # args: message, tag (string, optional)

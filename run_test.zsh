@@ -19,4 +19,5 @@ parse_options()
 parse_options $*
 
 #After getopts is done, shift all processed options away with
+echo "Hello World"
 echo $script

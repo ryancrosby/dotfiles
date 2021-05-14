@@ -29,4 +29,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           # run
-          "${GITHUB_WORKSPACE}/../run_test.zsh"
+          "${GITHUB_WORKSPACE}/run_test.zsh hello world"

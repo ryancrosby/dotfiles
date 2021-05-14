@@ -30,3 +30,4 @@ jobs:
         run: |
           # run
           "${GITHUB_WORKSPACE}/run_test.zsh hello world"
+        shell: zsh

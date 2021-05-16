@@ -44,19 +44,19 @@ parse_options()
 
 function verbose_log {
   if $verbose ; then
-    echo $1
+    echo "$1"
   fi
 }
 
 raise_error()
 {
-  echo Error: $@
+  echo Error: "$@"
   exit 1
 }
 
-parse_options $*
+parse_options "$*"
 
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 encryption_key=$*
 
@@ -76,7 +76,7 @@ verbose_log "Decrypting db at $encrypted_db"
 verbose_log "Exporting unencrypted db to $decrypted_db"
 verbose_log "Using Encryption key $encryption_key"
 
-sqlite3 $encrypted_db <<EOF
+sqlite3 "$encrypted_db" <<EOF
 PRAGMA key=$encryption_key;
 ATTACH DATABASE '$decrypted_db' AS plaintext KEY '';
 SELECT sqlcipher_export('plaintext');

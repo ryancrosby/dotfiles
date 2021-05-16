@@ -2,7 +2,8 @@
 df_source "$(brew --prefix asdf)/asdf.sh"
 
 if [[ $DF_MYSHELL == "zsh" ]]; then
-    fpath=(${ASDF_DIR}/completions $fpath)
+    # shellcheck disable=SC2206
+    fpath=("${ASDF_DIR}/completions" $fpath)
 elif [[ $DF_MYSHELL == "bash" ]]; then
     df_source "${ASDF_DIR}/completions/asdf.bash"
 else

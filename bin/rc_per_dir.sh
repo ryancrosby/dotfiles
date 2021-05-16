@@ -44,19 +44,19 @@ parse_options()
 
 function verbose_log {
   if $verbose ; then
-    echo $1
+    echo "$1"
   fi
 }
 
 raise_error()
 {
-  echo Error: $@
+  echo Error: "$@"
   exit 1
 }
 
-parse_options $*
+parse_options "$*"
 
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 cmd=$*
 
@@ -64,6 +64,8 @@ if [ -z "$cmd" ]; then
   verbose_log "No command passed"
   usage
 fi
+
+echo "$author"
 
 # Define the path we will pass to the find command to get directories to
 # run the script on
@@ -73,7 +75,7 @@ if $hide_hidden ; then
 fi
 
 # http://unix.stackexchange.com/questions/86722/how-do-i-loop-through-only-directories-in-bash
-find $find_path -mindepth 0 -maxdepth 0 -type d | while read d; do
+find "$find_path" -mindepth 0 -maxdepth 0 -type d | while read -r d; do
   verbose_log "Executing $cmd in $d"
   pushd "$d" >/dev/null
   $cmd || { echo "command failed"; exit 1; }

@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # use a function so we don't pollute environment variables
 function setup_java {
   local JHOME

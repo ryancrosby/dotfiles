@@ -52,19 +52,19 @@ parse_options()
 
 function verbose_log {
   if $verbose ; then
-    echo $1
+    echo "$1"
   fi
 }
 
 raise_error()
 {
-  echo Error: $@
+  echo Error: "$@"
   exit 1
 }
 
-parse_options $*
+parse_options "$*"
 
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 cmd=$*
 
@@ -73,8 +73,10 @@ if [ -z "$cmd" ]; then
   usage
 fi
 
+echo "$author"
+
 # http://unix.stackexchange.com/questions/86722/how-do-i-loop-through-only-directories-in-bash
-find $dir -mindepth 1 -maxdepth 1 -type d | while read d; do
+find "$dir" -mindepth 1 -maxdepth 1 -type d | while read -r d; do
   verbose_log "Executing $cmd in $d"
   $cmd || { echo "command failed"; exit 1; }
 done

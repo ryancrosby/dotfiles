@@ -1,13 +1,15 @@
+# shellcheck shell=bash
+
 pnpm_run_cmd () {
     command=$1;
     shift;
-    pnpm run $command -- $@
+    pnpm run "$command" -- "$@"
 }
 
 pnpm_run_recursive_cmd () {
     command=$1;
     shift;
-    pnpm run $command -r -- $@
+    pnpm run "$command" -r -- "$@"
 }
 
 # Run pnpm workspace
@@ -16,14 +18,14 @@ pnpm_run_workspace_cmd () {
     shift;
     command=$1;
     shift;
-    pnpm run $command --filter $workspace -- $@
+    pnpm run "$command" --filter "$workspace" -- "$@"
 }
 
 # Run pnpm workspace
 pnpm_run_root_cmd () {
     command=$1;
     shift;
-    pnpm run $command -w -- $@
+    pnpm run "$command" -w -- "$@"
 }
 
 alias p="pnpm" # used for any general command

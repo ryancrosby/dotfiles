@@ -10,5 +10,4 @@ git:
 #   - git submodule update --init --recursive
   
 script:
-  - shellcheck *.sh
-  - shellcheck shell-helpers/*
+  - ./lint.sh

@@ -1,6 +1,6 @@
 
+#DOTFILES_LOG_LEVEL=5
 source "$HOME/dotfiles/dotfiles_global.sh"
-#DOTFILES_LOG_LEVEL=3
 
 df_source "$HOME/dotfiles/set_path_env_var"
 df_source "$HOME/.asdf/plugins/java/set-java-home.zsh"

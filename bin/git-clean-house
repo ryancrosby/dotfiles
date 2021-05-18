@@ -9,7 +9,7 @@ set -o errexit
 scriptname=$0
 verbose=false
 dryrun=false
-master=""
+defaultBranch=""
 repository="origin"
 author="rcrosby@cvent.com"
 
@@ -17,7 +17,7 @@ author="rcrosby@cvent.com"
 
 function usage () {
    cat <<EOF
-Usage: $scriptname [-v] [-h] master
+Usage: $scriptname [-v] [-h] defaultBranch
    -v   executes and prints out verbose messages
    -d   do not remove anything, just report on what would be removed
    -r   the remote repository to compare against. default: origin
@@ -84,23 +84,23 @@ parse_options "$*"
 
 shift $((OPTIND - 1))
 
-master=$*
-if [ -z "$master" ]; then
-  master="develop"
+defaultBranch=$*
+if [ -z "$defaultBranch" ]; then
+  defaultBranch=git current-branch
 fi
 
-echo "Removing local branches merged to $repository/$master"
+echo "Removing local branches merged to $repository/$defaultBranch"
 
 git fetch
 git remote prune origin
 
-git branch | grep -v "$master$" | grep -v '\* ' | while read -r branch ; do
-  unmerged_commits=$(git cherry "$repository/$master" "$branch")
+git branch | grep -v "$defaultBranch$" | grep -v '\* ' | while read -r branch ; do
+  unmerged_commits=$(git cherry "$repository/$defaultBranch" "$branch")
   if [[ $? && -z "$unmerged_commits" ]]; then
     delete_branch "$branch"
   else
     # git log $repository/$master..$branch --oneline
-    should_delete=$(is_not_my_branch "$repository/$master" "$branch")
+    should_delete=$(is_not_my_branch "$repository/$defaultBranch" "$branch")
     if [ "$should_delete" = "true" ]; then
       verbose_log "Delete unmerged branch '$branch' since $author has no commits on it"
       delete_branch "$branch"

@@ -8,13 +8,13 @@ set -o errexit
 
 scriptname=$0
 verbose=false
-master="origin/develop"
+defaultBranch=$(git-default-branch)
 branch=""
 
 function usage () {
    cat <<EOF
-Usage: $scriptname [-m] [-v] [-h] branch
-   -m   master branch to compare to   
+Usage: $scriptname [-d] [-v] [-h] branch
+   -d   default branch branch to compare to   
    -v   executes and prints out verbose messages
    -h   displays basic help
 EOF
@@ -24,9 +24,9 @@ EOF
 parse_options()
 {
   # http://wiki.bash-hackers.org/howto/getopts_tutorial
-  while getopts ":hvm:" opt; do
+  while getopts ":hvd:" opt; do
     case $opt in
-      m)  master=$OPTARG ;;
+      d)  defaultBranch=$OPTARG ;;
       v)  verbose=true ;;
       h)  usage ;;
       \?) echo "Invalid option: -$OPTARG" >&2 ;;
@@ -55,17 +55,17 @@ if [ -z "$branch" ]; then
   branch=$(git current-branch)
 fi
 
-verbose_log "Comparing $branch to $master"
+verbose_log "Comparing $branch to $defaultBranch"
 
-cmd="git cherry $master $branch"
+cmd="git cherry $defaultBranch $branch"
 verbose_log "$cmd"
 if output=$($cmd); then
   verbose_log "$output"
   if [ -z "$output" ]; then
-    verbose_log "all commits on $branch are on $master"
+    verbose_log "all commits on $branch are on $defaultBranch"
     exit 0
   else
-    verbose_log "$branch has commits not on $master"
+    verbose_log "$branch has commits not on $defaultBranch"
     exit 1
   fi
 else

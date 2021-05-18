@@ -5,10 +5,14 @@
 #shellcheck source=dotfiles_global.sh
 source "${HOME}/dotfiles/dotfiles_global.sh"
 
+didError=0
+
 function lint_file () {
     if head -n1 "$1" | grep '/bin/bash'; then
     df_log_info "Linting $1 via shellcheck"
-    shellcheck "$1"
+    if ! shellcheck "$1"; then
+      didError=1
+    fi
   else 
     df_log_info "Ignoring $1 for linting"
   fi
@@ -25,3 +29,5 @@ function lint_glob () {
 
 lint_glob "**/*"
 lint_glob "*"
+
+exit $didError;

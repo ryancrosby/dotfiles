@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Lists commits on the current branch or passed in branch that are not on the default branch
 
 # Read argument as branch, if not passed use current branch
 BRANCH="${1:-$(git current-branch)}"

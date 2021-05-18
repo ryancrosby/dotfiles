@@ -4,4 +4,4 @@
 # Sets the tracking branch to the remote branch of the same name,
 # remote branch must exist.
 BRANCH=$(git-current-branch)
-git branch --set-upstream-to=origin/$BRANCH $BRANCH
+git branch --set-upstream-to=origin/"$BRANCH" "$BRANCH"

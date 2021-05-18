@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Resets the current branch to the HEAD of the given remote branch
 # or the remote for the current branch if none is given

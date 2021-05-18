@@ -10,7 +10,6 @@ scriptname=$0
 verbose=false
 dryrun=false
 defaultBranch=""
-repository="origin"
 author="rcrosby@cvent.com"
 
 # https://github.com/arc90/git-sweep
@@ -20,7 +19,6 @@ function usage () {
 Usage: $scriptname [-v] [-h] defaultBranch
    -v   executes and prints out verbose messages
    -d   do not remove anything, just report on what would be removed
-   -r   the remote repository to compare against. default: origin
    -a   the author to keep commits for.
    -h   displays basic help
 EOF
@@ -30,11 +28,10 @@ EOF
 parse_options()
 {
   # http://wiki.bash-hackers.org/howto/getopts_tutorial
-  while getopts ":hdva:r:" opt; do
+  while getopts ":hdva:" opt; do
     case $opt in
       v)  verbose=true ;;
       d)  dryrun=true ;;
-      r)  repository=$OPTARG ;;
       a)  author=$OPTARG ;;
       h)  usage ;;
       \?) echo "Invalid option: -$OPTARG" >&2 ;;
@@ -86,21 +83,29 @@ shift $((OPTIND - 1))
 
 defaultBranch=$*
 if [ -z "$defaultBranch" ]; then
-  defaultBranch=git current-branch
+  defaultBranch=$(git default-branch)
 fi
 
-echo "Removing local branches merged to $repository/$defaultBranch"
+if [[ $defaultBranch =~ ^(.*)\/(.*)$ ]]; then
+  defaultBranchRemote="${BASH_REMATCH[1]}"
+else
+  echo "Could not parse $defaultBranch into a remote and branch name, expected ex. origin/develop"
+  exit 1
+fi
+
+
+echo "Removing local branches merged to $defaultBranch"
 
 git fetch
-git remote prune origin
+git remote prune "$defaultBranchRemote"
 
 git branch | grep -v "$defaultBranch$" | grep -v '\* ' | while read -r branch ; do
-  unmerged_commits=$(git cherry "$repository/$defaultBranch" "$branch")
+  unmerged_commits=$(git cherry "$defaultBranch" "$branch")
   if [[ $? && -z "$unmerged_commits" ]]; then
     delete_branch "$branch"
   else
     # git log $repository/$master..$branch --oneline
-    should_delete=$(is_not_my_branch "$repository/$defaultBranch" "$branch")
+    should_delete=$(is_not_my_branch "$defaultBranch" "$branch")
     if [ "$should_delete" = "true" ]; then
       verbose_log "Delete unmerged branch '$branch' since $author has no commits on it"
       delete_branch "$branch"

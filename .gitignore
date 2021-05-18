@@ -1,9 +1,6 @@
 # OS X Files
 .DS_Store
 
-# vscode files
-.vscode/
-
 # Vim Created Temp Files
 *.swp
 *.swo

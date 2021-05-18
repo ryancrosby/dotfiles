@@ -30,7 +30,7 @@ EOF
 parse_options()
 {
   # http://wiki.bash-hackers.org/howto/getopts_tutorial
-  while getopts ":hdva:r:m:" opt; do
+  while getopts ":hdva:r:" opt; do
     case $opt in
       v)  verbose=true ;;
       d)  dryrun=true ;;
@@ -44,7 +44,7 @@ parse_options()
 
 function verbose_log {
   if $verbose ; then
-    echo $1
+    echo "$1"
   fi
 }
 
@@ -52,7 +52,7 @@ function delete_branch {
   if $dryrun; then
     echo "[DRY RUN] Would delete local branch $branch"
   else
-    if git branch -D $1; then
+    if git branch -D "$1"; then
       echo "Deleted local branch: $1"
     else
       echo "Could not delete local branch: $1"
@@ -63,7 +63,7 @@ function delete_branch {
 # No echoing in this function, it returns a value
 function is_not_my_branch {
   # https://stackoverflow.com/questions/29738751/with-set-e-is-it-possible-to-ignore-errors-for-certain-commands
-  other_commits=$(git log $1..$2 --format='%H %ae' | grep -v $author) || (echo "grep returns non zero if no matches, ignore so we can keep set -e" > /dev/null)
+  other_commits=$(git log "$1".."$2" --format='%H %ae' | grep -v "$author") || (echo "grep returns non zero if no matches, ignore so we can keep set -e" > /dev/null)
   if [[ $? && -z "$other_commits" ]]; then
     # "$2 has commits by $author"
     echo "false"
@@ -75,14 +75,14 @@ function is_not_my_branch {
 
 raise_error()
 {
-  echo Error: $@
+  echo Error: "$@"
   exit 1
 }
 
 
-parse_options $*
+parse_options "$*"
 
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 master=$*
 if [ -z "$master" ]; then
@@ -95,15 +95,15 @@ git fetch
 git remote prune origin
 
 git branch | grep -v "$master$" | grep -v '\* ' | while read -r branch ; do
-  unmerged_commits=$(git cherry $repository/$master $branch)
+  unmerged_commits=$(git cherry "$repository/$master" "$branch")
   if [[ $? && -z "$unmerged_commits" ]]; then
-    delete_branch $branch
+    delete_branch "$branch"
   else
     # git log $repository/$master..$branch --oneline
-    should_delete=$(is_not_my_branch $repository/$master $branch)
+    should_delete=$(is_not_my_branch "$repository/$master" "$branch")
     if [ "$should_delete" = "true" ]; then
       verbose_log "Delete unmerged branch '$branch' since $author has no commits on it"
-      delete_branch $branch
+      delete_branch "$branch"
     else
       verbose_log "Leaving $branch since it is not merged"
     fi

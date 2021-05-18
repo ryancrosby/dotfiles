@@ -36,19 +36,19 @@ parse_options()
 
 function verbose_log {
   if $verbose ; then
-    echo $1
+    echo "$1"
   fi
 }
 
 raise_error()
 {
-  echo Error: $@
+  echo Error: "$@"
   exit 1
 }
 
-parse_options $*
+parse_options "$*"
 
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 branch=$*
 if [ -z "$branch" ]; then
@@ -69,7 +69,7 @@ if output=$($cmd); then
     exit 1
   fi
 else
-  verbose_log $output
+  verbose_log "$output"
   exit 1
 fi
 

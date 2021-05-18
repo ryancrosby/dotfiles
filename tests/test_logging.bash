@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# shellcheck source=../dotfiles_global.sh
+# shellcheck source=./dotfiles_global.sh
 source "$HOME/dotfiles/dotfiles_global.sh"
 DOTFILES_LOG_LEVEL=5 
 

@@ -13,6 +13,8 @@ branch=""
 
 function usage () {
    cat <<EOF
+Script that returns success (exit 0) if the branch is merged to the
+default branch and errors (exit 1) if it is not.
 Usage: $scriptname [-d] [-v] [-h] branch
    -d   default branch branch to compare to   
    -v   executes and prints out verbose messages

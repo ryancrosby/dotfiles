@@ -11,9 +11,6 @@ alias ls='ls -GFh'
 # Same as above, but in long listing format
 alias ll='ls -GFhl'
 
-# Yarn via npx
-alias yarn='npx yarn'
-
 # Print terminal colors
 alias list_colors='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; done'
 

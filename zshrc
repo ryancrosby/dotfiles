@@ -26,3 +26,5 @@ df_source "$HOME/dotfiles/zaw/zaw.zsh"
 
 # syntax highlighting
 df_source "$HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+eval "$(nodenv init -)"

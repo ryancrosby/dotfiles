@@ -10,7 +10,7 @@ scriptname=$0
 verbose=false
 dryrun=false
 defaultBranch=""
-author="rcrosby@cvent.com"
+author=$(git config --get user.email)
 
 # https://github.com/arc90/git-sweep
 
@@ -94,7 +94,7 @@ else
 fi
 
 
-echo "Removing local branches merged to $defaultBranch"
+echo "Removing local branches merged to $defaultBranch and local branches with no commits from $author"
 
 git fetch
 git remote prune "$defaultBranchRemote"

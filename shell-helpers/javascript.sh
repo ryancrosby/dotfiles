@@ -33,3 +33,6 @@ alias pi="pnpm install" # helper for installation
 alias px="pnpm_run_cmd" # helper to run package scripts
 alias pxr="pnpm_run_recursive_cmd" # helper to recursively run package scripts
 alias pxw="pnpm_run_root_cmd" # helper to run a root package script
+
+alias y="yarn"
+alias yw="yarn workspace"

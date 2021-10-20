@@ -74,6 +74,8 @@ etc.....
 
 - Install [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
 
+- Install [asdf-yarn](https://github.com/twuni/asdf-yarn)
+
 - Install [asdf-java](https://github.com/halcyon/asdf-java), use an adopt-open version of java (adoptopenjdk-11.0.6+10.1)
 
 - Edit gitconfig of dotfiles repo and set author to email, https://dereenigne.org/git/set-git-email-address-on-a-per-repository-basis/

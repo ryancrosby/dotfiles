@@ -1,9 +1,9 @@
 
-#DOTFILES_LOG_LEVEL=5
+# DOTFILES_LOG_LEVEL=5
 source "$HOME/dotfiles/dotfiles_global.sh"
 
 df_source "$HOME/dotfiles/set_path_env_var"
-df_source "$HOME/.asdf/plugins/java/set-java-home.zsh"
+df_source_if_exists "$HOME/.asdf/plugins/java/set-java-home.zsh"
 df_source "$HOME/dotfiles/shell-helpers/shell-helpers"
 #source "$HOME/dotfiles/zsh/colors.zsh" # colors
 df_source "$HOME/dotfiles/zsh/setopts.zsh" # zsh configuration
@@ -26,5 +26,3 @@ df_source "$HOME/dotfiles/zaw/zaw.zsh"
 
 # syntax highlighting
 df_source "$HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-eval "$(nodenv init -)"

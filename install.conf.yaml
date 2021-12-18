@@ -1,9 +1,10 @@
-- clean: ['~']
+- clean: ["~"]
 
 - link:
-    ~/.dotfiles: ''
+    ~/.dotfiles: ""
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
+    ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
     ~/.sqliterc: sqliterc
     ~/.mavenrc: mavenrc
@@ -16,13 +17,15 @@
     ~/.zshrc: zshrc
     ~/.zprofile: zprofile
     ~/.gemrc: gemrc
-    ~/.lldbinit: lldbinit 
+    ~/.lldbinit: lldbinit
     ~/.asdfrc: asdfrc
     ~/.asdf-postgres-configure-options: asdf-postgres-configure-options
     ~/.tool-versions: tool-versions
+    ~/.default_gems: default_gems
+    ~/.default-npm-packages: default-npm-packages
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive, Installing submodules]
 
 - shell:
-  - [vim +PluginInstall +qall, Installing Vim plugins via Vundle]
+    - [vim +PluginInstall +qall, Installing Vim plugins via Vundle]

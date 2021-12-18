@@ -1,6 +1,5 @@
-# Add homebrew paths
-df_prepend_path "/usr/local/bin"
-df_prepend_path "/usr/local/sbin"
+# Configure Homebrew (v3+ I think)
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Starship
 export STARSHIP_CONFIG="${HOME}/dotfiles/starship.toml"

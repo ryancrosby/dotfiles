@@ -1,5 +1,9 @@
+
 # Configure Homebrew (v3+ I think)
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Mint
+df_prepend_path "${HOME}/.mint/bin"
 
 # Starship
 export STARSHIP_CONFIG="${HOME}/dotfiles/starship.toml"

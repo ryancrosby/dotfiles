@@ -1,0 +1,135 @@
+#!/bin/bash
+
+# Force declaring variables
+set -o nounset
+
+# Exit script if we ever hit an error
+set -o errexit
+
+scriptname=$0
+verbose=false
+dryrun=false
+defaultBranch=""
+author=$(git config --get user.email)
+
+# https://github.com/arc90/git-sweep
+
+function usage () {
+   cat <<EOF
+Usage: $scriptname [-v] [-h] defaultBranch
+   -v   executes and prints out verbose messages
+   -d   do not remove anything, just report on what would be removed
+   -a   the author to keep commits for.
+   -h   displays basic help
+EOF
+   exit 0
+}
+
+parse_options()
+{
+  # http://wiki.bash-hackers.org/howto/getopts_tutorial
+  while getopts ":hdva:" opt; do
+    case $opt in
+      v)  verbose=true ;;
+      d)  dryrun=true ;;
+      a)  author=$OPTARG ;;
+      h)  usage ;;
+      \?) echo "Invalid option: -$OPTARG" >&2 ;;
+    esac
+  done
+}
+
+function verbose_log {
+  if $verbose ; then
+    echo "$1"
+  fi
+}
+
+function delete_branch {
+  if $dryrun; then
+    echo "[DRY RUN] Would delete local branch $branch"
+  else
+    if git branch -D "$1"; then
+      echo "Deleted local branch: $1"
+    else
+      echo "Could not delete local branch: $1"
+    fi
+  fi
+}
+
+function contains() {
+  local e match="$1"
+  shift
+  for e; do [[ "$e" == "$match" ]] && return 0; done
+  return 1
+}
+
+# No echoing in this function, it returns a value
+function is_not_my_branch {
+  # https://stackoverflow.com/questions/29738751/with-set-e-is-it-possible-to-ignore-errors-for-certain-commands
+  other_commits=$(git log "$1".."$2" --format='%H %ae' | grep -v "$author") || (echo "grep returns non zero if no matches, ignore so we can keep set -e" > /dev/null)
+  if [[ $? && -z "$other_commits" ]]; then
+    # "$2 has commits by $author"
+    echo "false"
+  else
+    # "$2 has no commits by $author"
+    echo "true"
+  fi
+}
+
+raise_error()
+{
+  echo Error: "$@"
+  exit 1
+}
+
+parse_options "$*"
+
+shift $((OPTIND - 1))
+
+defaultBranch=$*
+if [ -z "$defaultBranch" ]; then
+  defaultBranch=$(git default-branch)
+fi
+
+if [[ $defaultBranch =~ ^(.*)\/(.*)$ ]]; then
+  defaultBranchRemote="${BASH_REMATCH[1]}"
+else
+  echo "Could not parse $defaultBranch into a remote and branch name, expected ex. origin/develop"
+  exit 1
+fi
+
+# gh pr view login-automated-tests --json state -q ".state"
+# gh pr view login-automated-tests --json commits -q ".commits[].oid"
+
+echo "Removing local branches merged to $defaultBranch and local branches with no commits from $author"
+if $dryrun; then
+  echo "[DRY RUN] Nothing will be removed during this run"
+fi
+
+git fetch
+git remote prune "$defaultBranchRemote"
+
+git branch | grep -v "$defaultBranch$" | grep -v '\* ' | while read -r branch ; do
+  verbose_log "Checking $branch PR Status"
+  # if there is no pr this command errors, so use || true to ignore errors
+  gh_pr_state=$(gh pr view "$branch" --json state -q ".state" || true)
+  if [[ "$gh_pr_state" = "MERGED" ]]; then
+    delete_branch "$branch"
+    # Below is a way we can determine if there are commits on this branch made post pr merge
+    # verbose_log "PR for $branch is merged"
+    # pr_merged_commits=read -r -d '' -a pr_merged_commits < <(gh pr view login-automated-tests --json commits -q ".commits[].oid")
+    # branch_unmerged_commits=$(git cherry "$defaultBranch" "$branch" | cut -d' ' -f2)
+
+    # verbose_log "Found ${#pr_merged_commits[@]} pr merged commits"
+    # verbose_log "Found ${#branch_unmerged_commits[@]} branch unmerged commits"
+    # for c in $branch_unmerged_commits; do
+    #   verbose_log "zzz $c is not merged"
+    # done
+    # gh pr view login-automated-tests --json commits -q ".commits[].oid" | while read -r merged_commit ; do
+    #   verbose_log "$merged_commit was merged in PR"
+    # done
+  else
+    verbose_log "Not deleting branch, PR Status: $gh_pr_state"
+  fi
+done

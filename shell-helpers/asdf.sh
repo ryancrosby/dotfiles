@@ -1,5 +1,5 @@
 # shellcheck shell=bash
-df_source "$(brew --prefix asdf)/asdf.sh"
+df_source "$(brew --prefix asdf)/libexec/asdf.sh"
 
 if [[ $DF_MYSHELL == "zsh" ]]; then
     # shellcheck disable=SC2206
